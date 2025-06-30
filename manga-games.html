@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Play manga and anime inspired games at ManhwaMosaic">
+    <title>Manga Games - ManhwaMosaic</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="ManhwaMosaic">
+                </a>
+            </div>
+            <div class="family-mode-toggle">
+                <button id="family-mode-btn">Family Mode</button>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Manhwa <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="search.html">Search</a>
+                            <a href="new.html">New</a>
+                            <a href="trending.html">Trending</a>
+                            <a href="completed.html">Completed</a>
+                            <a href="adult.html" class="adult-category-link">18+ Content</a>
+                        </div>
+                    </li>
+                    <li><a href="manga-games.html" class="active">Manga Games</a></li>
+                    <li class="mobile-only"><button id="mobile-family-mode-btn">Family Mode</button></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="search-toggle">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="auth-links">
+                    <a href="login.html" class="btn-login">Login</a>
+                    <a href="register.html" class="btn-register">Register</a>
+                </div>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="search-overlay">
+        <div class="search-container">
+            <input type="text" placeholder="Search titles, authors, genres...">
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+            <div class="close-search"><i class="fas fa-times"></i></div>
+        </div>
+    </div>
+    
+    <main>
+        <section class="games-section">
+            <div class="section-header">
+                <h1>Manga Games</h1>
+                <p>Play games inspired by your favorite mangas and manhwas</p>
+            </div>
+            
+            <div class="games-grid">
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://i.postimg.cc/KvVsGpXm/solo-leveling-game.jpg" alt="Solo Leveling: Arise">
+                        <div class="game-overlay">
+                            <a href="#" class="play-btn">Play Now</a>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3>Solo Leveling: Arise</h3>
+                        <div class="game-meta">
+                            <span class="game-genre">RPG</span>
+                            <span class="game-rating">
+                                <i class="fas fa-star"></i>
+                                4.7
+                            </span>
+                        </div>
+                        <p class="game-desc">Become a hunter and rise through the ranks in this action RPG based on Solo Leveling.</p>
+                    </div>
+                </div>
+                
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://i.postimg.cc/qMJPCVRM/tower-of-god-game.jpg" alt="Tower of God: Great Journey">
+                        <div class="game-overlay">
+                            <a href="#" class="play-btn">Play Now</a>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3>Tower of God: Great Journey</h3>
+                        <div class="game-meta">
+                            <span class="game-genre">Adventure</span>
+                            <span class="game-rating">
+                                <i class="fas fa-star"></i>
+                                4.5
+                            </span>
+                        </div>
+                        <p class="game-desc">Climb the tower and face challenges in this adventure game based on Tower of God.</p>
+                    </div>
+                </div>
+                
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://i.postimg.cc/9FX4Yy8z/overgeared-game.jpg" alt="Overgeared: Virtual World">
+                        <div class="game-overlay">
+                            <a href="#" class="play-btn">Play Now</a>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3>Overgeared: Virtual World</h3>
+                        <div class="game-meta">
+                            <span class="game-genre">MMORPG</span>
+                            <span class="game-rating">
+                                <i class="fas fa-star"></i>
+                                4.3
+                            </span>
+                        </div>
+                        <p class="game-desc">Craft legendary items and become the best blacksmith in this Overgeared-inspired MMORPG.</p>
+                    </div>
+                </div>
+                
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://i.postimg.cc/TwghPHZf/omniscient-reader-game.jpg" alt="Omniscient Reader's Viewpoint: Scenarios">
+                        <div class="game-overlay">
+                            <a href="#" class="play-btn">Play Now</a>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3>Omniscient Reader's Viewpoint</h3>
+                        <div class="game-meta">
+                            <span class="game-genre">Visual Novel</span>
+                            <span class="game-rating">
+                                <i class="fas fa-star"></i>
+                                4.8
+                            </span>
+                        </div>
+                        <p class="game-desc">Experience the apocalyptic story with choices that affect the outcome of scenarios.</p>
+                    </div>
+                </div>
+                
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://i.postimg.cc/GmVLvLyM/tbate-game.jpg" alt="The Beginning After The End: Reincarnation">
+                        <div class="game-overlay">
+                            <a href="#" class="play-btn">Play Now</a>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3>TBATE: Reincarnation</h3>
+                        <div class="game-meta">
+                            <span class="game-genre">Open World</span>
+                            <span class="game-rating">
+                                <i class="fas fa-star"></i>
+                                4.6
+                            </span>
+                        </div>
+                        <p class="game-desc">Start your new life as Arthur Leywin and explore the vast fantasy world of TBATE.</p>
+                    </div>
+                </div>
+                
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="https://i.postimg.cc/8CL7JFKJ/eleceed-game.jpg" alt="Eleceed: Fast Track">
+                        <div class="game-overlay">
+                            <a href="#" class="play-btn">Play Now</a>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3>Eleceed: Fast Track</h3>
+                        <div class="game-meta">
+                            <span class="game-genre">Action</span>
+                            <span class="game-rating">
+                                <i class="fas fa-star"></i>
+                                4.4
+                            </span>
+                        </div>
+                        <p class="game-desc">Master super-speed abilities and save the world in this fast-paced action game.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="games-coming-soon">
+                <h2>Coming Soon</h2>
+                <div class="coming-soon-grid">
+                    <div class="coming-soon-card">
+                        <img src="https://i.postimg.cc/CLqJ7hvy/second-life-ranker-game.jpg" alt="Second Life Ranker: Tower Climb">
+                        <h4>Second Life Ranker: Tower Climb</h4>
+                        <span class="release-date">Release: Q3 2025</span>
+                    </div>
+                    
+                    <div class="coming-soon-card">
+                        <img src="https://i.postimg.cc/5yhZZ2G4/sss-class-suicide-hunter-game.jpg" alt="SSS-Class Suicide Hunter">
+                        <h4>SSS-Class Suicide Hunter</h4>
+                        <span class="release-date">Release: Q4 2025</span>
+                    </div>
+                    
+                    <div class="coming-soon-card">
+                        <img src="https://i.postimg.cc/Kc8H1SVr/return-of-the-frozen-player-game.jpg" alt="Return of the Frozen Player">
+                        <h4>Return of the Frozen Player</h4>
+                        <span class="release-date">Release: Q1 2026</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="contact.html">Contact</a>
+                <a href="https://discord.gg/manhwamosaic" target="_blank">Discord <i class="fab fa-discord"></i></a>
+            </div>
+            <div class="copyright">
+                &copy; 2023-2025 ManhwaMosaic. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script src="dark-mode.js"></script>
+    <script src="reader-settings.js"></script>
+    <script src="family-mode.js"></script>
+</body>
+</html> 

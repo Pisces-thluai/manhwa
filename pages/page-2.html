@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; script-src 'self' 'unsafe-inline';">
+    <title>ManhwaMosaic - Page 2 | Read Manga, Manhwa, and Manhua Online</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="css/manga-cards.css">
+    <link rel="stylesheet" href="../css/header-search.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../images/logo.png" alt="ManhwaMosaic">
+                </a>
+            </div>
+            <div class="family-mode-toggle">
+                <button id="family-mode-btn">Family Mode</button>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Manhwa</a>
+                        <div class="dropdown-content">
+                            <a href="../search.html">Search</a>
+                            <a href="../new.html">New</a>
+                            <a href="../trending.html">Trending</a>
+                            <a href="../completed.html">Completed</a>
+                            <a href="../adult.html" class="adult-category-link">18+ Content</a>
+                        </div>
+                    </li>
+                    <li><a href="../manga-games.html">Manga Games</a></li>
+                    <li class="mobile-only"><button id="mobile-family-mode-btn">Family Mode</button></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="header-search">
+                    <form>
+                        <input type="text" placeholder="Search manga..." autocomplete="off">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                    <div class="search-suggestions"></div>
+                </div>
+                <div class="auth-links">
+                    <a href="../login.html">Login</a>
+                    <a href="../register.html">Register</a>
+                </div>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    
+
+    <div class="notice-bar">
+        Disqus isn't available at the moment on our website. We are looking into a solution.
+    </div>
+
+    <main>
+
+        <section class="featured-titles">
+            <div class="section-header">
+                <h2>NEW ON MANHWAMOSAIC</h2>
+            <div class="slider-container">
+                <button class="slider-nav left"><i class="fas fa-chevron-left"></i></button>
+                <div class="slider-content">
+                    <div class="slider-item" data-manga-id="black-crow">
+                        <a href="../manga/black-crow.html">
+                            <div class="slider-image">
+                            <img src="../images/covers/black-crow.jpg" alt="Black Crow">
+                            </div>
+                            <div class="slider-info">
+                                <h3>Black Crow</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="slider-item" data-manga-id="solo-leveling-ragnarok">
+                        <a href="../manga/solo-leveling-ragnarok.html">
+                            <div class="slider-image">
+                            <img src="../images/covers/solo-leveling-ragnarok.jpg" alt="Solo Leveling: Ragnarok">
+                            </div>
+                            <div class="slider-info">
+                                <h3>Solo Leveling: Ragnarok</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="slider-item" data-manga-id="the-rankers-guide">
+                        <a href="../manga/the-rankers-guide.html">
+                            <div class="slider-image">
+                            <img src="../images/covers/the-rankers-guide.jpg" alt="The Rankers Guide to Live an Ordinary Life">
+                            </div>
+                            <div class="slider-info">
+                                <h3>The Rankers Guide</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="slider-item" data-manga-id="my-life-as-a-player">
+                        <a href="../manga/my-life-as-a-player.html">
+                            <div class="slider-image">
+                            <img src="../images/covers/my-life-as-a-player.jpg" alt="My Life as a Player">
+                            </div>
+                            <div class="slider-info">
+                                <h3>My Life as a Player</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="slider-item" data-manga-id="11336">
+                        <a href="../manga/11336.html">
+                            <div class="slider-image">
+                            <img src="../images/covers/11336.jpg" alt="11336">
+                            </div>
+                            <div class="slider-info">
+                                <h3>11336</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="slider-item" data-manga-id="not-exactly-an-ignorant">
+                        <a href="../manga/not-exactly-an-ignorant.html">
+                            <div class="slider-image">
+                            <img src="../images/covers/not-exactly-an-ignorant.jpg" alt="Not Exactly An Ignorant">
+                            </div>
+                            <div class="slider-info">
+                                <h3>Not Exactly An Ignorant</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="slider-item" data-manga-id="refused-destructive-route">
+                        <a href="../manga/refused-destructive-route.html">
+                            <div class="slider-image">
+                            <img src="../images/covers/refused-destructive-route.jpg" alt="I Refused the Destructive Route of a Villain">
+                            </div>
+                            <div class="slider-info">
+                                <h3>I Refused the Destructive Route of a Villain</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="slider-item" data-manga-id="becoming-a-wicked-witch">
+                        <a href="../manga/becoming-a-wicked-witch.html">
+                            <div class="slider-image">
+                            <img src="../images/covers/becoming-a-wicked-witch.jpg" alt="Becoming a Wicked Witch With a Paladin's First Night">
+                            </div>
+                            <div class="slider-info">
+                                <h3>Becoming a Wicked Witch</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="slider-item" data-manga-id="you-my-devil">
+                        <a href="../manga/you-my-devil.html">
+                            <div class="slider-image">
+                            <img src="../images/covers/you-my-devil.jpg" alt="You, My Devil">
+                            </div>
+                            <div class="slider-info">
+                                <h3>You, My Devil</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="slider-item" data-manga-id="created-harem-avoid-male-lead">
+                        <a href="../manga/created-harem-avoid-male-lead.html">
+                            <div class="slider-image">
+                            <img src="../images/covers/created-harem-avoid-male-lead.jpg" alt="I Created a Harem to Avoid the Male Lead">
+                            </div>
+                            <div class="slider-info">
+                                <h3>I Created a Harem to Avoid the Male Lead</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <button class="slider-nav right"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <section class="latest-releases">
+            <h2>LATEST RELEASES - PAGE 2</h2>
+            <div class="manhwa-grid">
+                <!-- Row 1 -->
+                <div class="manhwa-card">
+                    <a href="../manga/ooh-la-la.html">
+                        <div class="manhwa-image">
+                            <img src="../images/covers/ooh-la-la-cover.jpg" alt="Ooh La La">
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>Ooh La La</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.75</span>
+                                </div>
+                                <div class="views">
+                                    <span>673.2K</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="../chapters/oohlala/chapter-55.html">Chapter 55</a>
+                                    <span class="date">Dec 24, 23</span>
+                                </div>
+                                <div class="chapter">
+                                    <a href="../chapters/oohlala/chapter-54.html">Chapter 54</a>
+                                    <span class="date">Dec 24, 23</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="manhwa-card">
+                    <a href="../manga/writer-sungs-life.html">
+                        <div class="manhwa-image">
+                            <img src="../images/covers/writer-sungs-life-cover.jpg" alt="Writer Sung's Life">
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>Writer Sung's Life</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.15</span>
+                                </div>
+                                <div class="views">
+                                    <span>613.3K</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="../chapters/writersungslife/chapter-33.html">Chapter 33</a>
+                                    <span class="date">Dec 23, 23</span>
+                                </div>
+                                <div class="chapter">
+                                    <a href="../chapters/writersungslife/chapter-32.html">Chapter 32</a>
+                                    <span class="date">Dec 17, 23</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="manhwa-card">
+                    <a href="../manga/counter.html">
+                        <div class="manhwa-image">
+                            <img src="../images/covers/counter-cover.jpg" alt="Counter">
+                            <span class="end-tag">END</span>
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>Counter</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.55</span>
+                                </div>
+                                <div class="views">
+                                    <span>235.1K</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="../chapters/counter/chapter-38.html">Chapter 38</a>
+                                    <span class="date">Nov 22, 23</span>
+                                </div>
+                                <div class="chapter">
+                                    <a href="../chapters/counter/chapter-37.html">Chapter 37</a>
+                                    <span class="date">Nov 22, 23</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="manhwa-card">
+                    <a href="../manga/malcolm-the-superstar-detective.html">
+                        <div class="manhwa-image">
+                            <img src="../images/covers/malcolm-the-superstar-detective.jpg" alt="Malcolm, The Superstar Detective">
+                            <span class="end-tag">END</span>
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>Malcolm, The Superstar Detective</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>3.5</span>
+                                </div>
+                                <div class="views">
+                                    <span>145.5K</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="../chapters/malcolm/chapter-50.html">Chapter 50</a>
+                                    <span class="date">Nov 22, 23</span>
+                                </div>
+                                <div class="chapter">
+                                    <a href="../chapters/malcolm/chapter-49.html">Chapter 49</a>
+                                    <span class="date">Nov 22, 23</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Row 2 -->
+                <div class="manhwa-card">
+                    <a href="../manga/the-amazing-siblings.html">
+                        <div class="manhwa-image">
+                            <img src="https://via.placeholder.com/220x300/333/666?text=Amazing+Siblings" alt="The Amazing Siblings">
+                            <span class="end-tag">END</span>
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>The Amazing Siblings</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.15</span>
+                                </div>
+                                <div class="views">
+                                    <span>584.2K</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="../chapters/amazingsiblings/chapter-200.html">Chapter 200</a>
+                                    <span class="date">Nov 22, 23</span>
+                                </div>
+                                <div class="chapter">
+                                    <a href="../chapters/amazingsiblings/chapter-199.html">Chapter 199</a>
+                                    <span class="date">Nov 22, 23</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="manhwa-card">
+                    <a href="../manga/becoming-a-wicked-witch.html">
+                        <div class="manhwa-image">
+                            <img src="https://via.placeholder.com/220x300/333/666?text=Wicked+Witch" alt="Becoming a Wicked Witch With a Paladin's First Night">
+                            <span class="hot-tag">HOT</span>
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>Becoming a Wicked Witch With a Paladin's First Night</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>3.95</span>
+                                </div>
+                                <div class="views">
+                                    <span>1M</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="../chapters/wickedwitch/chapter-11.html">Chapter 11</a>
+                                    <span class="date">Nov 21, 23</span>
+                                </div>
+                                <div class="chapter">
+                                    <a href="../chapters/wickedwitch/chapter-10.html">Chapter 10</a>
+                                    <span class="date">Nov 20, 23</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Added manga titles from Toonily page 2 -->
+                <div class="manhwa-card">
+                    <a href="../manga/the-chronicles-of-heavenly-demon.html">
+                        <div class="manhwa-image">
+                            <img src="../images/covers/the-chronicles-of-heavenly-demon.jpg" alt="The Chronicles of Heavenly Demon">
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>The Chronicles of Heavenly Demon</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.55</span>
+                                </div>
+                                <div class="views">
+                                    <span>6.1M</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="../chapters/chronicles-of-heavenly-demon/chapter-234.html">Chapter 234</a>
+                                    <span class="date">May 3, 24</span>
+                                </div>
+                                <div class="chapter">
+                                    <a href="../chapters/chronicles-of-heavenly-demon/chapter-233.html">Chapter 233</a>
+                                    <span class="date">May 3, 24</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="manhwa-card">
+                    <a href="../manga/love-rebooted.html">
+                        <div class="manhwa-image">
+                            <img src="../images/covers/love-rebooted.jpg" alt="Love Rebooted">
+                            <span class="end-tag">END</span>
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>Love Rebooted</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.35</span>
+                                </div>
+                                <div class="views">
+                                    <span>738.2K</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="../chapters/love-rebooted/epilogue.html">Epilogue</a>
+                                    <span class="date">Mar 14, 24</span>
+                                </div>
+                                <div class="chapter">
+                                    <a href="../chapters/love-rebooted/chapter-64.html">Chapter 64</a>
+                                    <span class="date">Mar 11, 24</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="manhwa-card">
+                    <a href="../manga/fff-class-trash-hero.html">
+                        <div class="manhwa-image">
+                            <img src="../images/covers/fff-class-trash-hero.jpg" alt="FFF-Class Trash Hero">
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>FFF-Class Trash Hero</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.45</span>
+                                </div>
+                                <div class="views">
+                                    <span>4.3M</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="../chapters/fff-class-trash-hero/chapter-172.html">Chapter 172</a>
+                                    <span class="date">Nov 9, 23</span>
+                                </div>
+                                <div class="chapter">
+                                    <a href="../chapters/fff-class-trash-hero/chapter-171.html">Chapter 171</a>
+                                    <span class="date">Oct 31, 23</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="manhwa-card">
+                    <a href="../manga/i-created-a-harem-to-avoid-the-male-lead.html">
+                        <div class="manhwa-image">
+                            <img src="../images/covers/i-created-a-harem-to-avoid-the-male-lead.jpg" alt="I Created a Harem to Avoid the Male Lead">
+                            <span class="new-tag">NEW</span>
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>I Created a Harem to Avoid the Male Lead</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>3.15</span>
+                                </div>
+                                <div class="views">
+                                    <span>357.1K</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="../chapters/i-created-a-harem/chapter-10.html">Chapter 10</a>
+                                    <span class="date">Nov 3, 23</span>
+                                </div>
+                                <div class="chapter">
+                                    <a href="../chapters/i-created-a-harem/chapter-9.html">Chapter 9</a>
+                                    <span class="date">Nov 3, 23</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="manhwa-card">
+                    <a href="../manga/you-my-devil.html">
+                        <div class="manhwa-image">
+                            <img src="../images/covers/you-my-devil.jpg" alt="You, My Devil">
+                            <span class="hot-tag">HOT</span>
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>You, My Devil</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.65</span>
+                                </div>
+                                <div class="views">
+                                    <span>832.5K</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="../chapters/you-my-devil/chapter-38.html">Chapter 38</a>
+                                    <span class="date">Nov 11, 23</span>
+                                </div>
+                                <div class="chapter">
+                                    <a href="../chapters/you-my-devil/chapter-37.html">Chapter 37</a>
+                                    <span class="date">Nov 4, 23</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Additional manga titles from Toonily page 2 image -->
+                <div class="manhwa-card">
+                    <a href="../manga/not-a-lonely-anymore.html">
+                        <div class="manhwa-image">
+                            <img src="../images/covers/not-a-lonely-anymore.jpg" alt="Not a Lonely Anymore">
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>Not a Lonely Anymore</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.4</span>
+                                </div>
+                                <div class="views">
+                                    <span>196.5K</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="../chapters/not-a-lonely-anymore/chapter-9.html">Chapter 9</a>
+                                    <span class="date">Feb 10, 23</span>
+                                </div>
+                                <div class="chapter">
+                                    <a href="../chapters/not-a-lonely-anymore/chapter-8.html">Chapter 8</a>
+                                    <span class="date">Feb 10, 23</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="manhwa-card">
+                    <a href="../manga/the-blood-recalled.html">
+                        <div class="manhwa-image">
+                            <img src="../images/covers/the-blood-recalled.jpg" alt="The Blood Recalled">
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>The Blood Recalled</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>3.9</span>
+                                </div>
+                                <div class="views">
+                                    <span>648.0K</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="../chapters/the-blood-recalled/chapter-70.html">Chapter 70</a>
+                                    <span class="date">Jan 30, 23</span>
+                                </div>
+                                <div class="chapter">
+                                    <a href="../chapters/the-blood-recalled/chapter-69.html">Chapter 69</a>
+                                    <span class="date">Jan 30, 23</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="manhwa-card">
+                    <a href="../manga/goblin.html">
+                        <div class="manhwa-image">
+                            <img src="../images/covers/goblin.jpg" alt="Goblin">
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>Goblin</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.0</span>
+                                </div>
+                                <div class="views">
+                                    <span>243.3K</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="../chapters/goblin/chapter-80.html">Chapter 80</a>
+                                    <span class="date">Jan 25, 23</span>
+                                </div>
+                                <div class="chapter">
+                                    <a href="../chapters/goblin/chapter-79.html">Chapter 79</a>
+                                    <span class="date">Jan 25, 23</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="manhwa-card">
+                    <a href="../manga/i-hate-rice.html">
+                        <div class="manhwa-image">
+                            <img src="../images/covers/i-hate-rice.jpg" alt="I Hate Rice">
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>I Hate Rice</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>3.3</span>
+                                </div>
+                                <div class="views">
+                                    <span>85.6K</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="../chapters/i-hate-rice/chapter-7.html">Chapter 7</a>
+                                    <span class="date">Nov 20, 22</span>
+                                </div>
+                                <div class="chapter">
+                                    <a href="../chapters/i-hate-rice/chapter-6.html">Chapter 6</a>
+                                    <span class="date">Nov 20, 22</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="manhwa-card">
+                    <a href="../manga/spirit-former.html">
+                        <div class="manhwa-image">
+                            <img src="../images/covers/spirit-former.jpg" alt="Spirit Former">
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>Spirit Former</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.4</span>
+                                </div>
+                                <div class="views">
+                                    <span>1.34M</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="../chapters/spirit-former/chapter-103.html">Chapter 103</a>
+                                    <span class="date">Jan 10, 23</span>
+                                </div>
+                                <div class="chapter">
+                                    <a href="../chapters/spirit-former/chapter-102.html">Chapter 102</a>
+                                    <span class="date">Jan 10, 23</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="manhwa-card">
+                    <a href="../manga/the-man-loved-heroes.html">
+                        <div class="manhwa-image">
+                            <img src="../images/covers/the-man-loved-heroes.jpg" alt="The Man Loved Heroes">
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>The Man Loved Heroes</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.4</span>
+                                </div>
+                                <div class="views">
+                                    <span>3.59M</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="../chapters/the-man-loved-heroes/chapter-102.html">Chapter 102</a>
+                                    <span class="date">Jan 7, 23</span>
+                                </div>
+                                <div class="chapter">
+                                    <a href="../chapters/the-man-loved-heroes/chapter-101.html">Chapter 101</a>
+                                    <span class="date">Jan 7, 23</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="manhwa-card">
+                    <a href="../manga/nano-machine.html">
+                        <div class="manhwa-image">
+                            <img src="../images/covers/nano-machine.jpg" alt="Nano Machine">
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>Nano Machine</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.7</span>
+                                </div>
+                                <div class="views">
+                                    <span>10.9M</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="../chapters/nano-machine/chapter-150.html">Chapter 150</a>
+                                    <span class="date">Dec 28, 22</span>
+                                </div>
+                                <div class="chapter">
+                                    <a href="../chapters/nano-machine/chapter-149.html">Chapter 149</a>
+                                    <span class="date">Dec 28, 22</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="manhwa-card">
+                    <a href="../manga/kill-the-hero.html">
+                        <div class="manhwa-image">
+                            <img src="../images/covers/kill-the-hero.jpg" alt="Kill The Hero">
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>Kill The Hero</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.7</span>
+                                </div>
+                                <div class="views">
+                                    <span>5.32M</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="../chapters/kill-the-hero/chapter-123.html">Chapter 123</a>
+                                    <span class="date">Dec 21, 22</span>
+                                </div>
+                                <div class="chapter">
+                                    <a href="../chapters/kill-the-hero/chapter-122.html">Chapter 122</a>
+                                    <span class="date">Dec 21, 22</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="manhwa-card">
+                    <a href="../manga/modifying-relationship.html">
+                        <div class="manhwa-image">
+                            <img src="../images/covers/modifying-relationship.jpg" alt="Modifying Relationship">
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>Modifying Relationship</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.0</span>
+                                </div>
+                                <div class="views">
+                                    <span>1.08M</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="../chapters/modifying-relationship/chapter-90.html">Chapter 90</a>
+                                    <span class="date">Dec 15, 22</span>
+                                </div>
+                                <div class="chapter">
+                                    <a href="../chapters/modifying-relationship/chapter-89.html">Chapter 89</a>
+                                    <span class="date">Dec 15, 22</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="pagination">
+                <a href="../index.html">1</a>
+                <a href="page-2.html" class="active">2</a>
+                <a href="page-3.html">3</a>
+                <a href="page-4.html">4</a>
+                <a href="page-5.html">5</a>
+                <a href="page-3.html">»</a>
+                <a href="page-5.html">Last »</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-nav">
+                <a href="../index.html">Home</a>
+                <a href="../privacy.html">Privacy Policy</a>
+                <a href="../terms.html">Terms of Service</a>
+                <a href="../contact.html">Contact</a>
+                <a href="#">Discord</a>
+            </div>
+            <div class="copyright">
+                © 2019-2025 ManhwaMosaic.
+            </div>
+        </div>
+    </footer>
+    
+    <script src="../script.js"></script>
+    <script src="../dark-mode.js"></script>
+    <script src="../reader-settings.js"></script>
+    <script src="../family-mode.js"></script>
+</body>
+</html> 
+
+
+
+
+
+
+
+
+
+

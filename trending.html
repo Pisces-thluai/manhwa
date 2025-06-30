@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trending Manhwa - ManhwaMosaic Clone</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="ManhwaMosaic">
+                </a>
+            </div>
+            <div class="family-mode-toggle">
+                <button id="family-mode-btn">Family Mode</button>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Manhwa <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="search.html">Search</a>
+                            <a href="new.html">New</a>
+                            <a href="trending.html" class="active">Trending</a>
+                            <a href="completed.html">Completed</a>
+                            <a href="adult.html" class="adult-category-link">18+ Content</a>
+                        </div>
+                    </li>
+                    <li><a href="manga-games.html">Manga Games</a></li>
+                    <li class="mobile-only"><button id="mobile-family-mode-btn">Family Mode</button></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="search-toggle">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="auth-links">
+                    <a href="login.html" class="btn-login">Login</a>
+                    <a href="register.html" class="btn-register">Register</a>
+                </div>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="search-overlay">
+        <div class="search-container">
+            <input type="text" placeholder="Search titles, authors, genres...">
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+            <div class="close-search"><i class="fas fa-times"></i></div>
+        </div>
+    </div>
+
+    <main>
+        <div class="trending-page">
+            <h1>Trending Manhwa</h1>
+            <div class="filter-bar">
+                <div class="filter-actions">
+                    <select class="filter-select">
+                        <option value="all">All</option>
+                        <option value="action">Action</option>
+                        <option value="adventure">Adventure</option>
+                        <option value="comedy">Comedy</option>
+                        <option value="drama">Drama</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="romance">Romance</option>
+                    </select>
+                    <select class="sort-select">
+                        <option value="trending">Trending</option>
+                        <option value="views">Views</option>
+                        <option value="rating">Rating</option>
+                        <option value="latest">Latest</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="manhwa-grid">
+                <!-- Trending manhwa entries -->
+                <div class="manhwa-card">
+                    <a href="manga/the-beginning-after-the-end.html">
+                        <div class="manhwa-image">
+                            <img src="https://via.placeholder.com/200x280" alt="The Beginning After the End">
+                            <span class="hot-tag">HOT</span>
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>The Beginning After the End</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.85</span>
+                                </div>
+                                <div class="views">
+                                    <span>30.4M</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="chapters/the-beginning-after-the-end-chapter-221.html">Chapter 221 <span class="date">Jun 6, 25</span></a>
+                                </div>
+                                <div class="chapter">
+                                    <a href="chapters/the-beginning-after-the-end-chapter-220.html">Chapter 220 <span class="date">May 29, 25</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="manhwa-card">
+                    <a href="manga/eleceed.html">
+                        <div class="manhwa-image">
+                            <img src="https://via.placeholder.com/200x280" alt="Eleceed">
+                            <span class="hot-tag">HOT</span>
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>Eleceed</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.85</span>
+                                </div>
+                                <div class="views">
+                                    <span>10M</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="chapters/eleceed-chapter-338.html">Chapter 338 <span class="date">Feb 19, 25</span></a>
+                                </div>
+                                <div class="chapter">
+                                    <a href="chapters/eleceed-chapter-337.html">Chapter 337 <span class="date">Feb 12, 25</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="manhwa-card">
+                    <a href="manga/mercenary-enrollment.html">
+                        <div class="manhwa-image">
+                            <img src="https://via.placeholder.com/200x280" alt="Mercenary Enrollment">
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>Mercenary Enrollment</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.85</span>
+                                </div>
+                                <div class="views">
+                                    <span>14.9M</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="chapters/mercenary-enrollment-chapter-225.html">Chapter 225 <span class="date">Feb 16, 25</span></a>
+                                </div>
+                                <div class="chapter">
+                                    <a href="chapters/mercenary-enrollment-chapter-224.html">Chapter 224 <span class="date">Feb 16, 25</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="manhwa-card">
+                    <a href="manga/overgeared.html">
+                        <div class="manhwa-image">
+                            <img src="https://via.placeholder.com/200x280" alt="Overgeared">
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>Overgeared</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.65</span>
+                                </div>
+                                <div class="views">
+                                    <span>10.7M</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="chapters/overgeared-chapter-272.html">Chapter 272 <span class="date">May 1, 25</span></a>
+                                </div>
+                                <div class="chapter">
+                                    <a href="chapters/overgeared-chapter-271.html">Chapter 271 <span class="date">Apr 24, 25</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="manhwa-card">
+                    <a href="manga/omniscient-reader.html">
+                        <div class="manhwa-image">
+                            <img src="https://via.placeholder.com/200x280" alt="Omniscient Reader's Viewpoint">
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>Omniscient Reader's Viewpoint</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.75</span>
+                                </div>
+                                <div class="views">
+                                    <span>8.6M</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="chapters/omniscient-reader-chapter-250.html">Chapter 250 <span class="date">Feb 19, 25</span></a>
+                                </div>
+                                <div class="chapter">
+                                    <a href="chapters/omniscient-reader-chapter-249.html">Chapter 249 <span class="date">Feb 19, 25</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="manhwa-card">
+                    <a href="manga/arcane-sniper.html">
+                        <div class="manhwa-image">
+                            <img src="https://via.placeholder.com/200x280" alt="Arcane Sniper">
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>Arcane Sniper</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.45</span>
+                                </div>
+                                <div class="views">
+                                    <span>4.6M</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="chapters/arcane-sniper-chapter-186.html">Chapter 186 <span class="date">Apr 29, 25</span></a>
+                                </div>
+                                <div class="chapter">
+                                    <a href="chapters/arcane-sniper-chapter-185.html">Chapter 185 <span class="date">Apr 29, 25</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="pagination">
+                <a href="#" class="active">1</a>
+                <a href="trending-page-2.html">2</a>
+                <a href="trending-page-3.html">3</a>
+                <a href="trending-page-4.html">4</a>
+                <a href="trending-page-5.html">5</a>
+                <a href="trending-page-2.html">»</a>
+                <a href="trending-page-15.html">Last »</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="contact.html">Contact</a>
+                <a href="discord.html">Discord</a>
+            </div>
+            <div class="copyright">
+                © 2019-2025 ManhwaMosaic. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script src="dark-mode.js"></script>
+    <script src="reader-settings.js"></script>
+    <script src="family-mode.js"></script>
+</body>
+</html> 

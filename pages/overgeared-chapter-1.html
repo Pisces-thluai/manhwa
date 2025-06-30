@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overgeared - Chapter 1 - ManhwaMosaic Clone</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../css/header-search.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <style>
+        /* Additional styles for chapter page */
+        .reader-header {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .manga-breadcrumb {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .manga-breadcrumb a {
+            color: #b9b9b9;
+        }
+        
+        .manga-breadcrumb .separator {
+            margin: 0 10px;
+            color: #6c757d;
+        }
+        
+        .manga-breadcrumb .current {
+            color: #fff;
+        }
+        
+        .chapter-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+        }
+        
+        .chapter-title {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .nav-button {
+            padding: 8px 15px;
+            background-color: #2a3541;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-button.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .nav-button i {
+            margin-right: 5px;
+        }
+        
+        .chapter-selector {
+            position: relative;
+        }
+        
+        .chapter-dropdown {
+            padding: 8px 15px;
+            background-color: #2a3541;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            min-width: 150px;
+            text-align: left;
+        }
+        
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #1a242f;
+            width: 200px;
+            max-height: 300px;
+            overflow-y: auto;
+            border-radius: 4px;
+            z-index: 100;
+            display: none;
+        }
+        
+        .dropdown-content a {
+            padding: 10px 15px;
+            display: block;
+            color: #b9b9b9;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #2a3541;
+        }
+        
+        .chapter-selector:hover .dropdown-content {
+            display: block;
+        }
+        
+        .reader-content {
+            text-align: center;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+        
+        .reader-image {
+            margin-bottom: 15px;
+        }
+        
+        .reader-image img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .reader-settings {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #1a242f;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 90;
+        }
+        
+        .reader-settings i {
+            font-size: 20px;
+        }
+        
+        .settings-panel {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background-color: #1a242f;
+            border-radius: 8px;
+            padding: 15px;
+            width: 250px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 90;
+            display: none;
+        }
+        
+        .settings-panel h3 {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .settings-group {
+            margin-bottom: 15px;
+        }
+        
+        .settings-option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .settings-option label {
+            font-size: 14px;
+            color: #b9b9b9;
+        }
+        
+        .chapter-comments {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .comment-header {
+            margin-bottom: 20px;
+        }
+        
+        .comment-form {
+            margin-bottom: 30px;
+        }
+        
+        .comment-form textarea {
+            width: 100%;
+            padding: 10px;
+            background-color: #1a242f;
+            border: 1px solid #2a3541;
+            border-radius: 4px;
+            color: #fff;
+            min-height: 100px;
+            margin-bottom: 10px;
+            resize: vertical;
+        }
+        
+        .comment-form button {
+            padding: 8px 20px;
+            background-color: #ff424e;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .comment-list {
+            list-style: none;
+        }
+        
+        .comment-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .comment-author {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 10px;
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info {
+            flex: 1;
+        }
+        
+        .author-name {
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+        
+        .comment-date {
+            font-size: 12px;
+            color: #6c757d;
+        }
+        
+        .comment-content {
+            color: #b9b9b9;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .chapter-navigation {
+                flex-wrap: wrap;
+            }
+            
+            .nav-buttons {
+                width: 100%;
+                justify-content: space-between;
+                order: 2;
+                margin-top: 10px;
+            }
+            
+            .chapter-selector {
+                width: 100%;
+                order: 1;
+            }
+            
+            .chapter-dropdown {
+                width: 100%;
+            }
+            
+            .dropdown-content {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="https://via.placeholder.com/120x30/ff5555/ffffff?text=ManhwaMosaic" alt="ManhwaMosaic">
+                </a>
+                <span class="family-mode-label">Family Mode</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Manhwa</a>
+                        <div class="dropdown-content">
+                            <a href="../search.html">Search</a>
+                            <a href="../new.html">New</a>
+                            <a href="../trending.html">Trending</a>
+                            <a href="../completed.html">Completed</a>
+                            <a href="../adult.html" class="adult-category-link">18+ Content</a>
+                        </div>
+                    </li>
+                    <li><a href="../manga-games.html">Manga Games</a></li>
+                    <li class="mobile-only"><button id="mobile-family-mode-btn">Family Mode</button></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="header-search">
+                    <form>
+                        <input type="text" placeholder="Search manga..." autocomplete="off">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                    <div class="search-suggestions"></div>
+                </div>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    
+
+    <main>
+        <div class="reader-header">
+            <div class="manga-breadcrumb">
+                <a href="../index.html">Home</a>
+                <span class="separator">/</span>
+                <a href="../manga/overgeared.html">Overgeared</a>
+                <span class="separator">/</span>
+                <span class="current">Chapter 1</span>
+            </div>
+            <h1 class="chapter-title">Overgeared - Chapter 1</h1>
+            
+            <div class="chapter-navigation">
+                <div class="nav-buttons">
+                    <button class="nav-button disabled"><i class="fas fa-chevron-left"></i> Previous</button>
+                    <button class="nav-button"><i class="fas fa-list"></i> Chapters</button>
+                </div>
+                <div class="chapter-selector">
+                    <button class="chapter-dropdown">Chapter 1 <i class="fas fa-caret-down"></i></button>
+                    <div class="dropdown-content">
+                        <a href="overgeared-chapter-1.html" class="active">Chapter 1</a>
+                        <a href="overgeared-chapter-2.html">Chapter 2</a>
+                        <a href="overgeared-chapter-3.html">Chapter 3</a>
+                        <!-- More chapters would be listed here -->
+                    </div>
+                </div>
+                <div class="nav-buttons">
+                    <button class="nav-button">Next <i class="fas fa-chevron-right"></i></button>
+                    <button class="nav-button bookmark"><i class="far fa-bookmark"></i> Bookmark</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="reader-content">
+            <!-- Chapter images -->
+            <div class="reader-image">
+                <img src="https://via.placeholder.com/800x1200?text=Overgeared+Chapter+1+Page+1" alt="Overgeared Chapter 1 Page 1">
+            </div>
+            <div class="reader-image">
+                <img src="https://via.placeholder.com/800x1200?text=Overgeared+Chapter+1+Page+2" alt="Overgeared Chapter 1 Page 2">
+            </div>
+            <div class="reader-image">
+                <img src="https://via.placeholder.com/800x1200?text=Overgeared+Chapter+1+Page+3" alt="Overgeared Chapter 1 Page 3">
+            </div>
+            <div class="reader-image">
+                <img src="https://via.placeholder.com/800x1200?text=Overgeared+Chapter+1+Page+4" alt="Overgeared Chapter 1 Page 4">
+            </div>
+            <div class="reader-image">
+                <img src="https://via.placeholder.com/800x1200?text=Overgeared+Chapter+1+Page+5" alt="Overgeared Chapter 1 Page 5">
+            </div>
+            <div class="reader-image">
+                <img src="https://via.placeholder.com/800x1200?text=Overgeared+Chapter+1+Page+6" alt="Overgeared Chapter 1 Page 6">
+            </div>
+            <div class="reader-image">
+                <img src="https://via.placeholder.com/800x1200?text=Overgeared+Chapter+1+Page+7" alt="Overgeared Chapter 1 Page 7">
+            </div>
+            <!-- More pages would go here -->
+        </div>
+        
+        <div class="chapter-navigation">
+            <div class="nav-buttons">
+                <button class="nav-button disabled"><i class="fas fa-chevron-left"></i> Previous</button>
+                <button class="nav-button"><i class="fas fa-list"></i> Chapters</button>
+            </div>
+            <div class="chapter-selector">
+                <button class="chapter-dropdown">Chapter 1 <i class="fas fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="overgeared-chapter-1.html" class="active">Chapter 1</a>
+                    <a href="overgeared-chapter-2.html">Chapter 2</a>
+                    <a href="overgeared-chapter-3.html">Chapter 3</a>
+                    <!-- More chapters would be listed here -->
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button">Next <i class="fas fa-chevron-right"></i></button>
+                <button class="nav-button bookmark"><i class="far fa-bookmark"></i> Bookmark</button>
+            </div>
+        </div>
+        
+        <div class="chapter-comments">
+            <h2 class="comment-header">Comments</h2>
+            
+            <div class="comment-form">
+                <textarea placeholder="Leave a comment"></textarea>
+                <button>Post Comment</button>
+            </div>
+            
+            <ul class="comment-list">
+                <li class="comment-item">
+                    <div class="comment-author">
+                        <div class="author-avatar">
+                            <img src="https://via.placeholder.com/40x40" alt="User Avatar">
+                        </div>
+                        <div class="author-info">
+                            <div class="author-name">GridFan2023</div>
+                            <div class="comment-date">3 months ago</div>
+                        </div>
+                    </div>
+                    <div class="comment-content">
+                        Finally started reading this after seeing so many recommendations! Looking forward to seeing Grid's journey.
+                    </div>
+                </li>
+                <li class="comment-item">
+                    <div class="comment-author">
+                        <div class="author-avatar">
+                            <img src="https://via.placeholder.com/40x40" alt="User Avatar">
+                        </div>
+                        <div class="author-info">
+                            <div class="author-name">MMO_Master</div>
+                            <div class="comment-date">2 months ago</div>
+                        </div>
+                    </div>
+                    <div class="comment-content">
+                        The art style is really good! I love how they portray the game world vs reality.
+                    </div>
+                </li>
+                <li class="comment-item">
+                    <div class="comment-author">
+                        <div class="author-avatar">
+                            <img src="https://via.placeholder.com/40x40" alt="User Avatar">
+                        </div>
+                        <div class="author-info">
+                            <div class="author-name">NoobSlayer99</div>
+                            <div class="comment-date">1 month ago</div>
+                        </div>
+                    </div>
+                    <div class="comment-content">
+                        As someone who read the novel, I'm excited to see this adapted in manhwa form. The first chapter captures Grid's character perfectly!
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </main>
+    
+    <div class="reader-settings">
+        <i class="fas fa-cog"></i>
+    </div>
+    
+    <div class="settings-panel">
+        <h3>Reading Settings</h3>
+        <div class="settings-group">
+            <div class="settings-option">
+                <label>Reading Mode</label>
+                <select>
+                    <option>Vertical Scrolling</option>
+                    <option>Left to Right</option>
+                    <option>Right to Left</option>
+                </select>
+            </div>
+            <div class="settings-option">
+                <label>Image Quality</label>
+                <select>
+                    <option>High</option>
+                    <option>Medium</option>
+                    <option>Low</option>
+                </select>
+            </div>
+        </div>
+        <div class="settings-group">
+            <div class="settings-option">
+                <label>Auto-Scroll</label>
+                <input type="checkbox">
+            </div>
+            <div class="settings-option">
+                <label>Fit Width</label>
+                <input type="checkbox" checked>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-nav">
+            <a href="../index.html">Home</a>
+            <a href="../privacy.html">Privacy Policy</a>
+            <a href="../terms.html">Terms of Service</a>
+            <a href="../contact.html">Contact</a>
+            <a href="#">Discord</a>
+        </div>
+        <div class="copyright">
+            © 2019-2023 ManhwaMosaic.
+        </div>
+    </footer>
+    
+    <script src="../script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Chapter navigation
+            const nextBtn = document.querySelectorAll('.nav-button:not(.disabled):not(.bookmark)')[2];
+            const chaptersBtn = document.querySelectorAll('.nav-button')[1];
+            
+            if (nextBtn) {
+                nextBtn.addEventListener('click', function() {
+                    window.location.href = 'overgeared-chapter-2.html';
+                });
+            }
+            
+            if (chaptersBtn) {
+                chaptersBtn.addEventListener('click', function() {
+                    window.location.href = '../manga/overgeared.html#chapters';
+                });
+            }
+            
+            // Bookmark button functionality
+            const bookmarkBtns = document.querySelectorAll('.nav-button.bookmark');
+            
+            bookmarkBtns.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    
+                    if (this.classList.contains('active')) {
+                        this.innerHTML = '<i class="fas fa-bookmark"></i> Bookmarked';
+                    } else {
+                        this.innerHTML = '<i class="far fa-bookmark"></i> Bookmark';
+                    }
+                });
+            });
+            
+            // Reader settings panel
+            const settingsBtn = document.querySelector('.reader-settings');
+            const settingsPanel = document.querySelector('.settings-panel');
+            
+            if (settingsBtn && settingsPanel) {
+                settingsBtn.addEventListener('click', function() {
+                    if (settingsPanel.style.display === 'block') {
+                        settingsPanel.style.display = 'none';
+                    } else {
+                        settingsPanel.style.display = 'block';
+                    }
+                });
+                
+                // Close panel when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!settingsBtn.contains(e.target) && !settingsPanel.contains(e.target)) {
+                        settingsPanel.style.display = 'none';
+                    }
+                });
+            }
+            
+            // Comment form
+            const commentForm = document.querySelector('.comment-form');
+            const commentTextarea = commentForm.querySelector('textarea');
+            const commentBtn = commentForm.querySelector('button');
+            
+            if (commentForm && commentTextarea && commentBtn) {
+                commentBtn.addEventListener('click', function() {
+                    const comment = commentTextarea.value.trim();
+                    
+                    if (comment) {
+                        alert('You need to be logged in to post a comment.');
+                        commentTextarea.value = '';
+                    }
+                });
+            }
+        });
+    </script>
+    <script src="../script.js"></script>
+    <script src="../dark-mode.js"></script>
+    <script src="../reader-settings.js"></script>
+    <script src="../family-mode.js"></script>
+</body>
+</html> 
+
+
+
+
+
+

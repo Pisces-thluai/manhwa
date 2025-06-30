@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - ManhwaMosaic Clone</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="ManhwaMosaic">
+                </a>
+            </div>
+            <div class="family-mode-toggle">
+                <button id="family-mode-btn">Family Mode</button>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Manhwa</a>
+                        <div class="dropdown-content">
+                            <a href="search.html">Search</a>
+                            <a href="new.html">New</a>
+                            <a href="trending.html">Trending</a>
+                            <a href="completed.html">Completed</a>
+                            <a href="adult.html" class="adult-category-link">18+ Content</a>
+                        </div>
+                    </li>
+                    <li><a href="manga-games.html">Manga Games</a></li>
+                    <li class="mobile-only"><button id="mobile-family-mode-btn">Family Mode</button></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="search-toggle">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="auth-links">
+                    <a href="login.html">Login</a>
+                    <a href="register.html">Register</a>
+                </div>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="search-overlay">
+        <div class="search-container">
+            <input type="text" placeholder="Search...">
+            <button><i class="fas fa-search"></i></button>
+            <div class="close-search"><i class="fas fa-times"></i></div>
+        </div>
+    </div>
+
+    <main>
+        <div class="contact-page">
+            <h1>Contact Us</h1>
+            <p>You can contact us directly at <strong>contact@ManhwaMosaic.com</strong></p>
+            
+            <div class="contact-form">
+                <h2>Send a Message</h2>
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="name">Name*</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email*</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject*</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message*</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="contact.html">Contact</a>
+            <a href="#">Discord</a>
+        </div>
+        <div class="copyright">
+            © 2019-2023 ManhwaMosaic.
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script src="script.js"></script>
+    <script src="dark-mode.js"></script>
+    <script src="reader-settings.js"></script>
+    <script src="family-mode.js"></script>
+</body>
+</html> 
+

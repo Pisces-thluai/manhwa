@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Completed Manhwa - ManhwaMosaic Clone</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="ManhwaMosaic">
+                </a>
+            </div>
+            <div class="family-mode-toggle">
+                <button id="family-mode-btn">Family Mode</button>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Manhwa</a>
+                        <div class="dropdown-content">
+                            <a href="search.html">Search</a>
+                            <a href="new.html">New</a>
+                            <a href="trending.html">Trending</a>
+                            <a href="completed.html">Completed</a>
+                            <a href="adult.html" class="adult-category-link">18+ Content</a>
+                        </div>
+                    </li>
+                    <li><a href="manga-games.html">Manga Games</a></li>
+                    <li class="mobile-only"><button id="mobile-family-mode-btn">Family Mode</button></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="search-toggle">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="auth-links">
+                    <a href="login.html">Login</a>
+                    <a href="register.html">Register</a>
+                </div>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="search-overlay">
+        <div class="search-container">
+            <input type="text" placeholder="Search...">
+            <button><i class="fas fa-search"></i></button>
+            <div class="close-search"><i class="fas fa-times"></i></div>
+        </div>
+    </div>
+
+    <main>
+        <div class="completed-page">
+            <h1>Completed Manhwa</h1>
+            <div class="filter-bar">
+                <div class="filter-actions">
+                    <select class="filter-select">
+                        <option value="all">All</option>
+                        <option value="action">Action</option>
+                        <option value="adventure">Adventure</option>
+                        <option value="comedy">Comedy</option>
+                        <option value="drama">Drama</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="romance">Romance</option>
+                    </select>
+                    <select class="sort-select">
+                        <option value="latest">Latest</option>
+                        <option value="views">Views</option>
+                        <option value="rating">Rating</option>
+                        <option value="a-z">A-Z</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="manhwa-grid">
+                <!-- Completed manhwa entries -->
+                <div class="manhwa-card">
+                    <a href="manga/11336.html">
+                        <div class="manhwa-image">
+                            <img src="https://via.placeholder.com/200x280" alt="11336">
+                            <span class="end-tag">END</span>
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>11336</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.55</span>
+                                </div>
+                                <div class="views">
+                                    <span>2.2M</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="chapters/11336-chapter-40.html">Chapter 40 <span class="date">Sep 30, 24</span></a>
+                                </div>
+                                <div class="chapter">
+                                    <a href="chapters/11336-chapter-39.html">Chapter 39 <span class="date">Sep 23, 24</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="manhwa-card">
+                    <a href="manga/go-away-mr-demon.html">
+                        <div class="manhwa-image">
+                            <img src="https://via.placeholder.com/200x280" alt="Go Away, Mr.Demon">
+                            <span class="end-tag">END</span>
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>Go Away, Mr.Demon</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.5</span>
+                                </div>
+                                <div class="views">
+                                    <span>293.5K</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="chapters/go-away-mr-demon-chapter-261.html">Chapter 261 <span class="date">Apr 20, 25</span></a>
+                                </div>
+                                <div class="chapter">
+                                    <a href="chapters/go-away-mr-demon-chapter-260.html">Chapter 260 <span class="date">Apr 20, 25</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="manhwa-card">
+                    <a href="manga/im-no-heroine.html">
+                        <div class="manhwa-image">
+                            <img src="https://via.placeholder.com/200x280" alt="I'm No Heroine!">
+                            <span class="end-tag">END</span>
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>I'm No Heroine!</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.55</span>
+                                </div>
+                                <div class="views">
+                                    <span>1.6M</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="chapters/im-no-heroine-chapter-80.html">Chapter 80 <span class="date">Apr 3, 25</span></a>
+                                </div>
+                                <div class="chapter">
+                                    <a href="chapters/im-no-heroine-chapter-79.html">Chapter 79 <span class="date">Mar 29, 25</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="manhwa-card">
+                    <a href="manga/4-cut-hero.html">
+                        <div class="manhwa-image">
+                            <img src="https://via.placeholder.com/200x280" alt="4 Cut Hero">
+                            <span class="end-tag">END</span>
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>4 Cut Hero</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.55</span>
+                                </div>
+                                <div class="views">
+                                    <span>4.4M</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="chapters/4-cut-hero-chapter-263.html">Chapter 263 <span class="date">Nov 5, 24</span></a>
+                                </div>
+                                <div class="chapter">
+                                    <a href="chapters/4-cut-hero-chapter-251.html">Chapter 251 <span class="date">Oct 16, 24</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="manhwa-card">
+                    <a href="manga/love-rebooted.html">
+                        <div class="manhwa-image">
+                            <img src="https://via.placeholder.com/200x280" alt="Love Rebooted">
+                            <span class="end-tag">END</span>
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>Love Rebooted</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.35</span>
+                                </div>
+                                <div class="views">
+                                    <span>738.2K</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="chapters/love-rebooted-epilogue.html">Epilogue <span class="date">Mar 14, 24</span></a>
+                                </div>
+                                <div class="chapter">
+                                    <a href="chapters/love-rebooted-chapter-64.html">Chapter 64 <span class="date">Mar 11, 24</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="manhwa-card">
+                    <a href="manga/sunny-side-up.html">
+                        <div class="manhwa-image">
+                            <img src="https://via.placeholder.com/200x280" alt="Sunny-Side Up">
+                            <span class="end-tag">END</span>
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>Sunny-Side Up</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.55</span>
+                                </div>
+                                <div class="views">
+                                    <span>686K</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="chapters/sunny-side-up-chapter-62.html">Chapter 62 <span class="date">Jun 11, 24</span></a>
+                                </div>
+                                <div class="chapter">
+                                    <a href="chapters/sunny-side-up-chapter-61.html">Chapter 61 <span class="date">Jun 11, 24</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="manhwa-card" data-manga-id="solo-leveling">
+                    <a href="manga/solo-leveling.html">
+                        <div class="manhwa-image">
+                            <img src="images/covers/solo-leveling.jpg" alt="Solo Leveling">
+                            <span class="end-tag">END</span>
+                        </div>
+                        <div class="manhwa-info">
+                            <h3>Solo Leveling</h3>
+                            <div class="rating-row">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.95</span>
+                                </div>
+                                <div class="views">
+                                    <span>21.5M</span>
+                                </div>
+                            </div>
+                            <div class="chapters">
+                                <div class="chapter">
+                                    <a href="chapters/solo-leveling/side-story-21.html">Side Story 21</a>
+                                    <span class="date">May 31, 23</span>
+                                </div>
+                                <div class="chapter">
+                                    <a href="chapters/solo-leveling/side-story-20.html">Side Story 20</a>
+                                    <span class="date">May 24, 23</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="pagination">
+                <a href="#" class="active">1</a>
+                <a href="completed-page-2.html">2</a>
+                <a href="completed-page-3.html">3</a>
+                <a href="completed-page-4.html">4</a>
+                <a href="completed-page-5.html">5</a>
+                <a href="completed-page-2.html">»</a>
+                <a href="completed-page-10.html">Last »</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="contact.html">Contact</a>
+            <a href="#">Discord</a>
+        </div>
+        <div class="copyright">
+            © 2019-2023 ManhwaMosaic.
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script src="script.js"></script>
+    <script src="dark-mode.js"></script>
+    <script src="reader-settings.js"></script>
+    <script src="family-mode.js"></script>
+</body>
+</html> 
+

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Search manga, manhwa, and manhua on ManhwaMosaic">
+    <title>Search - ManhwaMosaic</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/header-search.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        /* Enhanced Search Page Styles */
+        .search-hero {
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/covers/search-banner.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .search-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .search-hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .search-form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .search-form {
+            display: flex;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 50px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .search-form:focus-within {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
+        }
+        
+        .search-input {
+            flex-grow: 1;
+            padding: 18px 25px;
+            font-size: 1.1rem;
+            border: none;
+            outline: none;
+            background: transparent;
+        }
+        
+        .search-button {
+            background: linear-gradient(135deg, #6b48ff, #9747FF);
+            color: white;
+            border: none;
+            padding: 0 35px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-button:hover {
+            background: linear-gradient(135deg, #5a3be0, #8a3aeb);
+        }
+        
+        .filters-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+            background: transparent;
+            border: 1px solid #ddd;
+            color: #555;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+        
+        .filters-toggle.active {
+            background: #6b48ff;
+            color: white;
+            border-color: #6b48ff;
+        }
+        
+        .filters-toggle i {
+            margin-left: 8px;
+            font-size: 0.8rem;
+        }
+        
+        .advanced-filters {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+            display: none;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .advanced-filters.expanded {
+            display: grid;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .filter-group h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #333;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 8px;
+        }
+        
+        .genre-filters {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 10px;
+        }
+        
+        .genre-checkbox {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 20px;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+        }
+        
+        .genre-checkbox:hover {
+            background: #f8f8f8;
+        }
+        
+        .genre-checkbox input {
+            margin-right: 8px;
+        }
+        
+        .filter-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            background: #f8f8f8;
+            font-size: 0.95rem;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-group select:focus {
+            border-color: #6b48ff;
+            box-shadow: 0 0 0 2px rgba(107, 72, 255, 0.2);
+        }
+        
+        .search-results {
+            margin-top: 40px;
+        }
+        
+        .search-results-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .search-results-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .result-count {
+            color: #777;
+            font-size: 0.95rem;
+        }
+        
+        .view-options {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .view-option {
+            background: none;
+            border: none;
+            color: #777;
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 5px;
+        }
+        
+        .view-option.active {
+            color: #6b48ff;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        .no-results-icon {
+            font-size: 3rem;
+            color: #ddd;
+            margin-bottom: 15px;
+        }
+        
+        .no-results h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        .no-results p {
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .search-hero {
+                padding: 50px 0;
+            }
+            
+            .search-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .search-form {
+                flex-direction: column;
+                border-radius: 15px;
+            }
+            
+            .search-input {
+                width: 100%;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .search-button {
+                width: 100%;
+                padding: 15px;
+                border-radius: 0 0 15px 15px;
+            }
+            
+            .advanced-filters {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .search-results-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .view-options {
+                align-self: flex-end;
+            }
+        }
+    </style>
+    <script>
+        // Check if family mode is enabled
+        document.addEventListener('DOMContentLoaded', function() {
+            const isFamilyModeEnabled = localStorage.getItem('familyMode') === 'enabled';
+            
+            // If family mode is disabled, redirect to adult version
+            if (!isFamilyModeEnabled) {
+                window.location.href = 'adult/search.html' + window.location.search;
+            }
+        });
+    </script>
+</head>
+<body class="family-page search-page">
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="ManhwaMosaic">
+                </a>
+            </div>
+            <div class="family-mode-toggle">
+                <button id="family-mode-btn" class="active">Family Mode</button>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="active">Manhwa <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="search.html" class="active">Search</a>
+                            <a href="new.html">New</a>
+                            <a href="trending.html">Trending</a>
+                            <a href="completed.html">Completed</a>
+                        </div>
+                    </li>
+                    <li><a href="manga-games.html">Manga Games</a></li>
+                    <li class="mobile-only"><button id="mobile-family-mode-btn" class="active">Family Mode</button></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="header-search">
+                    <form>
+                        <input type="text" placeholder="Search manga..." autocomplete="off">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                    <div class="search-suggestions"></div>
+                </div>
+                <div class="search-toggle">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="auth-links">
+                    <a href="login.html" class="btn-login">Login</a>
+                    <a href="register.html" class="btn-register">Register</a>
+                </div>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="search-overlay">
+        <div class="search-container">
+            <input type="text" placeholder="Search titles, authors, genres...">
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+            <div class="close-search"><i class="fas fa-times"></i></div>
+        </div>
+    </div>
+
+    <div class="notice-bar">
+        <div class="notice-content">
+            <span>You are viewing the Family Friendly version of ManhwaMosaic.</span>
+            <button class="notice-close"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+    
+    <main>
+        <section class="search-hero">
+            <div class="container">
+                <h1>Find Your Next Favorite Read</h1>
+                <p>Search from our extensive collection of family-friendly manhwa, manga, and more</p>
+            </div>
+        </section>
+        
+        <section class="search-section">
+            <div class="container">
+                <div class="search-form-container">
+                    <form id="search-form" class="search-form">
+                        <input type="text" id="search-input" class="search-input" placeholder="Search for titles, authors, genres...">
+                        <button type="submit" class="search-button"><i class="fas fa-search"></i> Search</button>
+                    </form>
+                    <button id="filters-toggle" class="filters-toggle">
+                        <span>Show Filters</span> <i class="fas fa-chevron-down"></i>
+                    </button>
+                    
+                    <div id="advanced-filters" class="advanced-filters">
+                        <div class="filter-group">
+                            <h3>Genres</h3>
+                            <div class="genre-filters">
+                                <label class="genre-checkbox"><input type="checkbox" value="action"> Action</label>
+                                <label class="genre-checkbox"><input type="checkbox" value="adventure"> Adventure</label>
+                                <label class="genre-checkbox"><input type="checkbox" value="comedy"> Comedy</label>
+                                <label class="genre-checkbox"><input type="checkbox" value="drama"> Drama</label>
+                                <label class="genre-checkbox"><input type="checkbox" value="fantasy"> Fantasy</label>
+                                <label class="genre-checkbox"><input type="checkbox" value="romance"> Romance</label>
+                                <label class="genre-checkbox"><input type="checkbox" value="sci-fi"> Sci-Fi</label>
+                                <label class="genre-checkbox"><input type="checkbox" value="slice-of-life"> Slice of Life</label>
+                                <label class="genre-checkbox"><input type="checkbox" value="mystery"> Mystery</label>
+                                <label class="genre-checkbox"><input type="checkbox" value="horror"> Horror</label>
+                                <label class="genre-checkbox"><input type="checkbox" value="sports"> Sports</label>
+                                <label class="genre-checkbox"><input type="checkbox" value="isekai"> Isekai</label>
+                                <label class="genre-checkbox"><input type="checkbox" value="game"> Game</label>
+                                <label class="genre-checkbox"><input type="checkbox" value="school-life"> School Life</label>
+                                <label class="genre-checkbox"><input type="checkbox" value="supernatural"> Supernatural</label>
+                                <label class="genre-checkbox"><input type="checkbox" value="sequel"> Sequel</label>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <h3>Status</h3>
+                            <div class="status-filters">
+                                <label class="status-checkbox"><input type="checkbox" value="ongoing"> Ongoing</label>
+                                <label class="status-checkbox"><input type="checkbox" value="completed"> Completed</label>
+                                <label class="status-checkbox"><input type="checkbox" value="hiatus"> On Hiatus</label>
+                            </div>
+                            
+                            <h3 style="margin-top: 20px;">Sort By</h3>
+                            <select id="sort">
+                                <option value="relevance">Relevance</option>
+                                <option value="newest">Latest Added</option>
+                                <option value="rating-desc">Rating (High to Low)</option>
+                                <option value="popularity">Popularity</option>
+                                <option value="title-asc">Title (A-Z)</option>
+                                <option value="title-desc">Title (Z-A)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="search-results">
+                    <div class="search-results-header">
+                        <div>
+                            <h2>Search Results</h2>
+                            <div id="result-count" class="result-count">0 results found</div>
+                        </div>
+                        <div class="view-options">
+                            <button class="view-option grid-view active" title="Grid View">
+                                <i class="fas fa-th-large"></i>
+                            </button>
+                            <button class="view-option list-view" title="List View">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="search-results-container"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="contact.html">Contact</a>
+                <a href="https://discord.gg/manhwamosaic" target="_blank">Discord</a>
+            </div>
+            <div class="copyright">
+                © 2022-2025 ManhwaMosaic. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/search.js"></script>
+    <script src="js/header-search.js"></script>
+    <script src="js/family-mode.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
