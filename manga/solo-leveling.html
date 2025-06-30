@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solo Leveling - ManhwaMosaic</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../css/header-search.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <style>
+        /* Toonily-inspired styles */
+        body {
+            background-color: #151f2e;
+            color: #fff;
+        }
+        
+        .content-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .manga-header-wrap {
+            background: linear-gradient(to bottom, rgba(21, 31, 46, 0.8), #151f2e), 
+                url('../images/backgrounds/solo-leveling-bg.jpg') center/cover no-repeat;
+            padding: 40px 0;
+        }
+        
+        .manga-header {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .manga-cover {
+            flex: 0 0 270px;
+            position: relative;
+        }
+        
+        .manga-cover img {
+            width: 100%;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hot-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff424e;
+            color: white;
+            padding: 2px 8px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+        
+        .manga-info {
+            flex: 1;
+        }
+        
+        .manga-title-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        
+        .manga-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .manga-title-tag {
+            background-color: #ff424e;
+            color: white;
+            padding: 2px 8px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+        
+        .manga-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 15px;
+        }
+        
+        .manga-rating-stars {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .manga-rating-stars i {
+            color: #ffb400;
+        }
+        
+        .manga-rating-score {
+            font-weight: bold;
+        }
+        
+        .manga-rating-views i {
+            color: #6c757d;
+            margin-right: 5px;
+        }
+        
+        .manga-alt-titles {
+            color: #b9b9b9;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .manga-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .manga-meta-item {
+            display: flex;
+        }
+        
+        .manga-meta-label {
+            width: 80px;
+            color: #b9b9b9;
+            font-size: 14px;
+        }
+        
+        .manga-meta-value {
+            color: #fff;
+            font-size: 14px;
+        }
+        
+        .manga-meta-value.status {
+            color: #4caf50;
+        }
+        
+        .manga-meta-value.status.completed {
+            color: #ff9800;
+        }
+        
+        .manga-genres {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .genre-tag {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #2a3541;
+            color: #b9b9b9;
+            border-radius: 4px;
+            margin: 0 5px 5px 0;
+            font-size: 14px;
+        }
+        
+        .action-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .action-btn {
+            padding: 8px 20px;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+        
+        .action-btn.read-first {
+            background-color: #ff424e;
+        }
+        
+        .action-btn.read-last {
+            background-color: #2a3541;
+        }
+        
+        .user-actions {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .user-action {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #b9b9b9;
+            cursor: pointer;
+        }
+        
+        .user-action.active {
+            color: #ff424e;
+        }
+        
+        .user-action.bookmark {
+            color: #b9b9b9;
+        }
+        
+        .user-action i {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .user-action-text {
+            font-size: 12px;
+        }
+        
+        .user-action-count {
+            color: #b9b9b9;
+            font-size: 12px;
+        }
+        
+        /* Summary Section */
+        .summary-section {
+            padding: 40px 0;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            text-transform: uppercase;
+        }
+        
+        .manga-description {
+            line-height: 1.7;
+            color: #b9b9b9;
+        }
+        
+        /* Tags Section */
+        .tags-section {
+            padding: 20px 0;
+        }
+        
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+        
+        /* Chapters Section */
+        .chapters-section {
+            padding: 20px 0;
+        }
+        
+        .chapters-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .chapters-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .chapters-order {
+            display: flex;
+            align-items: center;
+            color: #b9b9b9;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .chapters-order i {
+            margin-left: 5px;
+        }
+        
+        .chapter-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+        
+        .chapter-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: background-color 0.2s;
+        }
+        
+        .chapter-item:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        
+        .chapter-link {
+            color: #fff;
+            text-decoration: none;
+            flex: 1;
+        }
+        
+        .chapter-date {
+            color: #6c757d;
+            font-size: 14px;
+        }
+        
+        .discussion-section {
+            padding: 40px 0;
+            color: #b9b9b9;
+            text-align: center;
+        }
+        
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .tab-link {
+            padding: 10px 20px;
+            color: #b9b9b9;
+            cursor: pointer;
+            position: relative;
+            font-weight: bold;
+        }
+        
+        .tab-link.active {
+            color: #fff;
+        }
+        
+        .tab-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #ff424e;
+        }
+        
+        @media (max-width: 768px) {
+            .manga-header {
+                flex-direction: column;
+            }
+            
+            .manga-cover {
+                flex: 0 0 auto;
+                max-width: 230px;
+                margin: 0 auto 20px;
+            }
+            
+            .action-group {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .user-actions {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../images/logo.png" alt="ManhwaMosaic">
+                </a>
+            </div>
+            <div class="family-mode-toggle">
+                <button id="family-mode-btn">Family Mode</button>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Manhwa <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="../search.html">Search</a>
+                            <a href="../new.html">New</a>
+                            <a href="../trending.html">Trending</a>
+                            <a href="../completed.html">Completed</a>
+                            <a href="../adult.html" class="adult-category-link">18+ Content</a>
+                        </div>
+                    </li>
+                    <li><a href="../manga-games.html">Manga Games</a></li>
+                    <li class="mobile-only"><button id="mobile-family-mode-btn">Family Mode</button></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="header-search">
+                    <form>
+                        <input type="text" placeholder="Search manga..." autocomplete="off">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                    <div class="search-suggestions"></div>
+                </div>
+                <div class="auth-links">
+                    <a href="../login.html" class="btn-login">Login</a>
+                    <a href="../register.html" class="btn-register">Register</a>
+                </div>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <div class="content-wrap">
+            <a href="../index.html">Home</a> / <span>Solo Leveling</span>
+        </div>
+    </div>
+
+    <div class="manga-header-wrap">
+        <div class="content-wrap">
+            <div class="manga-header">
+                <div class="manga-cover">
+                    <img src="../images/covers/solo-leveling.jpg" alt="Solo Leveling">
+                    <span class="hot-tag">HOT</span>
+                </div>
+                <div class="manga-info">
+                    <div class="manga-title-section">
+                        <h1 class="manga-title">Solo Leveling</h1>
+                        <span class="manga-title-tag">HOT</span>
+                    </div>
+                    
+                    <div class="manga-rating">
+                        <div class="manga-rating-stars">
+                            <i class="fas fa-star"></i>
+                            <span class="manga-rating-score">4.9 (21.5K)</span>
+                        </div>
+                        <div class="manga-rating-views">
+                            <i class="fas fa-eye"></i>
+                            <span>21.5M</span>
+                        </div>
+                    </div>
+                    
+                    <div class="manga-alt-titles">
+                        나 혼자만 레벨업
+                    </div>
+                    
+                    <div class="manga-meta">
+                        <div class="manga-meta-item">
+                            <div class="manga-meta-label">Author(s)</div>
+                            <div class="manga-meta-value">Chu-Gong</div>
+                        </div>
+                        <div class="manga-meta-item">
+                            <div class="manga-meta-label">Artist(s)</div>
+                            <div class="manga-meta-value">REDICE studio</div>
+                        </div>
+                        <div class="manga-meta-item">
+                            <div class="manga-meta-label">Genre(s)</div>
+                            <div class="manga-meta-value">
+                                <div class="manga-genres">
+                                    <span class="genre-tag">Action</span>
+                                    <span class="genre-tag">Adventure</span>
+                                    <span class="genre-tag">Drama</span>
+                                    <span class="genre-tag">Fantasy</span>
+                                    <span class="genre-tag">Shounen</span>
+                                    <span class="genre-tag">Supernatural</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="manga-meta-item">
+                            <div class="manga-meta-label">Status</div>
+                            <div class="manga-meta-value status completed">Completed</div>
+                        </div>
+                        <div class="manga-meta-item">
+                            <div class="manga-meta-label">Published by</div>
+                            <div class="manga-meta-value">kakao</div>
+                        </div>
+                    </div>
+                    
+                    <div class="action-group">
+                        <div class="action-buttons">
+                            <button class="action-btn read-first">Read First</button>
+                            <button class="action-btn read-last">Read Last</button>
+                        </div>
+                        <div class="user-actions">
+                            <div class="user-action">
+                                <i class="fas fa-star"></i>
+                                <span class="user-action-text">Rate this</span>
+                            </div>
+                            <div class="user-action bookmark">
+                                <i class="far fa-bookmark"></i>
+                                <span class="user-action-text">9.1k</span>
+                                <span class="user-action-count">Bookmarks</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-wrap">
+        <div class="summary-section">
+            <h2 class="section-title">SUMMARY</h2>
+            <div class="manga-description">
+                <p>When inter-dimensional 'gates' opened up 'dungeons' full of monsters, 'hunters' blessed with special abilities were humanity's only defense. Years later these hunters make a living by 'clearing' these dungeons for loot.</p>
+                <p>Sung Jinwoo, a young bottom-feeder hunter, is overwhelmed by powerful monsters during a routine raid and finds himself in grave danger. Somehow cheating death, he gains access to exclusive quests and perks. With each quest and perk, he grows stronger without limits. Liberated from his weaknesses, he is now a player of the system, on the rise and Solo Leveling!</p>
+            </div>
+        </div>
+        
+        <div class="tags-section">
+            <h2 class="section-title">TAGS</h2>
+            <div class="tag-list">
+                <span class="tag">BASED ON A NOVEL</span>
+                <span class="tag">CHARACTER GROWTH</span>
+                <span class="tag">DUNGEONS</span>
+                <span class="tag">MAGIC</span>
+                <span class="tag">OVERPOWERED PROTAGONIST</span>
+            </div>
+        </div>
+        
+        <div class="tab-nav">
+            <div class="tab-link active">CHAPTERS</div>
+            <div class="tab-link">DISCUSSION</div>
+        </div>
+        
+        <div class="chapters-section">
+            <div class="chapters-header">
+                <div class="chapters-title">CHAPTERS</div>
+                <div class="chapters-order">
+                    <span>Reverse Order</span>
+                    <i class="fas fa-sort"></i>
+                </div>
+            </div>
+            <ul class="chapter-list">
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/side-story-21.html" class="chapter-link">Side Story 21 - The End</a>
+                    <span class="chapter-date">May 31, 23</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/side-story-20.html" class="chapter-link">Side Story 20</a>
+                    <span class="chapter-date">May 24, 23</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/side-story-19.html" class="chapter-link">Side Story 19</a>
+                    <span class="chapter-date">May 17, 23</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/side-story-18.html" class="chapter-link">Side Story 18</a>
+                    <span class="chapter-date">May 10, 23</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/side-story-17.html" class="chapter-link">Side Story 17</a>
+                    <span class="chapter-date">May 3, 23</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/side-story-16.html" class="chapter-link">Side Story 16</a>
+                    <span class="chapter-date">Apr 26, 23</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/side-story-15.html" class="chapter-link">Side Story 15</a>
+                    <span class="chapter-date">Apr 19, 23</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/side-story-14.html" class="chapter-link">Side Story 14</a>
+                    <span class="chapter-date">Apr 12, 23</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/side-story-13.html" class="chapter-link">Side Story 13</a>
+                    <span class="chapter-date">Apr 5, 23</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/side-story-12.html" class="chapter-link">Side Story 12</a>
+                    <span class="chapter-date">Mar 29, 23</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/side-story-11.html" class="chapter-link">Side Story 11</a>
+                    <span class="chapter-date">Mar 22, 23</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/side-story-10.html" class="chapter-link">Side Story 10</a>
+                    <span class="chapter-date">Mar 15, 23</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/side-story-9.html" class="chapter-link">Side Story 9</a>
+                    <span class="chapter-date">Mar 8, 23</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/side-story-8.html" class="chapter-link">Side Story 8</a>
+                    <span class="chapter-date">Mar 1, 23</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/side-story-7.html" class="chapter-link">Side Story 7</a>
+                    <span class="chapter-date">Feb 22, 23</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/side-story-6.html" class="chapter-link">Side Story 6</a>
+                    <span class="chapter-date">Feb 15, 23</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/side-story-5.html" class="chapter-link">Side Story 5</a>
+                    <span class="chapter-date">Feb 8, 23</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/side-story-4.html" class="chapter-link">Side Story 4</a>
+                    <span class="chapter-date">Feb 1, 23</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/side-story-3.html" class="chapter-link">Side Story 3</a>
+                    <span class="chapter-date">Jan 25, 23</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/side-story-2.html" class="chapter-link">Side Story 2</a>
+                    <span class="chapter-date">Jan 18, 23</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/side-story-1.html" class="chapter-link">Side Story 1</a>
+                    <span class="chapter-date">Jan 11, 23</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-179.html" class="chapter-link">Chapter 179</a>
+                    <span class="chapter-date">Jan 4, 23</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-178.html" class="chapter-link">Chapter 178</a>
+                    <span class="chapter-date">Dec 28, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-177.html" class="chapter-link">Chapter 177</a>
+                    <span class="chapter-date">Dec 21, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-176.html" class="chapter-link">Chapter 176</a>
+                    <span class="chapter-date">Dec 14, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-175.html" class="chapter-link">Chapter 175</a>
+                    <span class="chapter-date">Dec 7, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-174.html" class="chapter-link">Chapter 174</a>
+                    <span class="chapter-date">Nov 30, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-173.html" class="chapter-link">Chapter 173</a>
+                    <span class="chapter-date">Nov 23, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-172.html" class="chapter-link">Chapter 172</a>
+                    <span class="chapter-date">Nov 16, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-171.html" class="chapter-link">Chapter 171</a>
+                    <span class="chapter-date">Nov 9, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-170.html" class="chapter-link">Chapter 170</a>
+                    <span class="chapter-date">Nov 2, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-169.html" class="chapter-link">Chapter 169</a>
+                    <span class="chapter-date">Oct 26, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-168.html" class="chapter-link">Chapter 168</a>
+                    <span class="chapter-date">Oct 19, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-167.html" class="chapter-link">Chapter 167</a>
+                    <span class="chapter-date">Oct 12, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-166.html" class="chapter-link">Chapter 166</a>
+                    <span class="chapter-date">Oct 5, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-165.html" class="chapter-link">Chapter 165</a>
+                    <span class="chapter-date">Sep 28, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-164.html" class="chapter-link">Chapter 164</a>
+                    <span class="chapter-date">Sep 21, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-163.html" class="chapter-link">Chapter 163</a>
+                    <span class="chapter-date">Sep 14, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-162.html" class="chapter-link">Chapter 162</a>
+                    <span class="chapter-date">Sep 7, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-161.html" class="chapter-link">Chapter 161</a>
+                    <span class="chapter-date">Aug 31, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-160.html" class="chapter-link">Chapter 160</a>
+                    <span class="chapter-date">Aug 24, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-159.html" class="chapter-link">Chapter 159</a>
+                    <span class="chapter-date">Aug 17, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-158.html" class="chapter-link">Chapter 158</a>
+                    <span class="chapter-date">Aug 10, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-157.html" class="chapter-link">Chapter 157</a>
+                    <span class="chapter-date">Aug 3, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-156.html" class="chapter-link">Chapter 156</a>
+                    <span class="chapter-date">Jul 27, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-155.html" class="chapter-link">Chapter 155</a>
+                    <span class="chapter-date">Jul 20, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-154.html" class="chapter-link">Chapter 154</a>
+                    <span class="chapter-date">Jul 13, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-153.html" class="chapter-link">Chapter 153</a>
+                    <span class="chapter-date">Jul 6, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-152.html" class="chapter-link">Chapter 152</a>
+                    <span class="chapter-date">Jun 29, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-151.html" class="chapter-link">Chapter 151</a>
+                    <span class="chapter-date">Jun 22, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-150.html" class="chapter-link">Chapter 150</a>
+                    <span class="chapter-date">Jun 15, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-149.html" class="chapter-link">Chapter 149</a>
+                    <span class="chapter-date">Jun 8, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-148.html" class="chapter-link">Chapter 148</a>
+                    <span class="chapter-date">Jun 1, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-147.html" class="chapter-link">Chapter 147</a>
+                    <span class="chapter-date">May 25, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-146.html" class="chapter-link">Chapter 146</a>
+                    <span class="chapter-date">May 18, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-145.html" class="chapter-link">Chapter 145</a>
+                    <span class="chapter-date">May 11, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-144.html" class="chapter-link">Chapter 144</a>
+                    <span class="chapter-date">May 4, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-143.html" class="chapter-link">Chapter 143</a>
+                    <span class="chapter-date">Apr 27, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-142.html" class="chapter-link">Chapter 142</a>
+                    <span class="chapter-date">Apr 20, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-141.html" class="chapter-link">Chapter 141</a>
+                    <span class="chapter-date">Apr 13, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-140.html" class="chapter-link">Chapter 140</a>
+                    <span class="chapter-date">Apr 6, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-139.html" class="chapter-link">Chapter 139</a>
+                    <span class="chapter-date">Mar 30, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-138.html" class="chapter-link">Chapter 138</a>
+                    <span class="chapter-date">Mar 23, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-137.html" class="chapter-link">Chapter 137</a>
+                    <span class="chapter-date">Mar 16, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-136.html" class="chapter-link">Chapter 136</a>
+                    <span class="chapter-date">Mar 9, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-135.html" class="chapter-link">Chapter 135</a>
+                    <span class="chapter-date">Mar 2, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-134.html" class="chapter-link">Chapter 134</a>
+                    <span class="chapter-date">Feb 23, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-133.html" class="chapter-link">Chapter 133</a>
+                    <span class="chapter-date">Feb 16, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-132.html" class="chapter-link">Chapter 132</a>
+                    <span class="chapter-date">Feb 9, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-131.html" class="chapter-link">Chapter 131</a>
+                    <span class="chapter-date">Feb 2, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-130.html" class="chapter-link">Chapter 130</a>
+                    <span class="chapter-date">Jan 26, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-129.html" class="chapter-link">Chapter 129</a>
+                    <span class="chapter-date">Jan 19, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-128.html" class="chapter-link">Chapter 128</a>
+                    <span class="chapter-date">Jan 12, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-127.html" class="chapter-link">Chapter 127</a>
+                    <span class="chapter-date">Jan 5, 22</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-126.html" class="chapter-link">Chapter 126</a>
+                    <span class="chapter-date">Dec 29, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-125.html" class="chapter-link">Chapter 125</a>
+                    <span class="chapter-date">Dec 22, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-124.html" class="chapter-link">Chapter 124</a>
+                    <span class="chapter-date">Dec 15, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-123.html" class="chapter-link">Chapter 123</a>
+                    <span class="chapter-date">Dec 8, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-122.html" class="chapter-link">Chapter 122</a>
+                    <span class="chapter-date">Dec 1, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-121.html" class="chapter-link">Chapter 121</a>
+                    <span class="chapter-date">Nov 24, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-120.html" class="chapter-link">Chapter 120</a>
+                    <span class="chapter-date">Nov 17, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-119.html" class="chapter-link">Chapter 119</a>
+                    <span class="chapter-date">Nov 10, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-118.html" class="chapter-link">Chapter 118</a>
+                    <span class="chapter-date">Nov 3, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-117.html" class="chapter-link">Chapter 117</a>
+                    <span class="chapter-date">Oct 27, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-116.html" class="chapter-link">Chapter 116</a>
+                    <span class="chapter-date">Oct 20, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-115.html" class="chapter-link">Chapter 115</a>
+                    <span class="chapter-date">Oct 13, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-114.html" class="chapter-link">Chapter 114</a>
+                    <span class="chapter-date">Oct 6, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-113.html" class="chapter-link">Chapter 113</a>
+                    <span class="chapter-date">Sep 29, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-112.html" class="chapter-link">Chapter 112</a>
+                    <span class="chapter-date">Sep 22, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-111.html" class="chapter-link">Chapter 111</a>
+                    <span class="chapter-date">Sep 15, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-110.html" class="chapter-link">Chapter 110</a>
+                    <span class="chapter-date">Sep 8, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-109.html" class="chapter-link">Chapter 109</a>
+                    <span class="chapter-date">Sep 1, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-108.html" class="chapter-link">Chapter 108</a>
+                    <span class="chapter-date">Aug 25, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-107.html" class="chapter-link">Chapter 107</a>
+                    <span class="chapter-date">Aug 18, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-106.html" class="chapter-link">Chapter 106</a>
+                    <span class="chapter-date">Aug 11, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-105.html" class="chapter-link">Chapter 105</a>
+                    <span class="chapter-date">Aug 4, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-104.html" class="chapter-link">Chapter 104</a>
+                    <span class="chapter-date">Jul 28, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-103.html" class="chapter-link">Chapter 103</a>
+                    <span class="chapter-date">Jul 21, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-102.html" class="chapter-link">Chapter 102</a>
+                    <span class="chapter-date">Jul 14, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-101.html" class="chapter-link">Chapter 101</a>
+                    <span class="chapter-date">Jul 7, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-100.html" class="chapter-link">Chapter 100</a>
+                    <span class="chapter-date">Jun 30, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-99.html" class="chapter-link">Chapter 99</a>
+                    <span class="chapter-date">Jun 23, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-98.html" class="chapter-link">Chapter 98</a>
+                    <span class="chapter-date">Jun 16, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-97.html" class="chapter-link">Chapter 97</a>
+                    <span class="chapter-date">Jun 9, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-96.html" class="chapter-link">Chapter 96</a>
+                    <span class="chapter-date">Jun 2, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-95.html" class="chapter-link">Chapter 95</a>
+                    <span class="chapter-date">May 26, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-94.html" class="chapter-link">Chapter 94</a>
+                    <span class="chapter-date">May 19, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-93.html" class="chapter-link">Chapter 93</a>
+                    <span class="chapter-date">May 12, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-92.html" class="chapter-link">Chapter 92</a>
+                    <span class="chapter-date">May 5, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-91.html" class="chapter-link">Chapter 91</a>
+                    <span class="chapter-date">Apr 28, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-90.html" class="chapter-link">Chapter 90</a>
+                    <span class="chapter-date">Apr 21, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-89.html" class="chapter-link">Chapter 89</a>
+                    <span class="chapter-date">Apr 14, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-88.html" class="chapter-link">Chapter 88</a>
+                    <span class="chapter-date">Apr 7, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-87.html" class="chapter-link">Chapter 87</a>
+                    <span class="chapter-date">Mar 31, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-86.html" class="chapter-link">Chapter 86</a>
+                    <span class="chapter-date">Mar 24, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-85.html" class="chapter-link">Chapter 85</a>
+                    <span class="chapter-date">Mar 17, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-84.html" class="chapter-link">Chapter 84</a>
+                    <span class="chapter-date">Mar 10, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-83.html" class="chapter-link">Chapter 83</a>
+                    <span class="chapter-date">Mar 3, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-82.html" class="chapter-link">Chapter 82</a>
+                    <span class="chapter-date">Feb 24, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-81.html" class="chapter-link">Chapter 81</a>
+                    <span class="chapter-date">Feb 17, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-80.html" class="chapter-link">Chapter 80</a>
+                    <span class="chapter-date">Feb 10, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-79.html" class="chapter-link">Chapter 79</a>
+                    <span class="chapter-date">Feb 3, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-78.html" class="chapter-link">Chapter 78</a>
+                    <span class="chapter-date">Jan 27, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-77.html" class="chapter-link">Chapter 77</a>
+                    <span class="chapter-date">Jan 20, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-76.html" class="chapter-link">Chapter 76</a>
+                    <span class="chapter-date">Jan 13, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-75.html" class="chapter-link">Chapter 75</a>
+                    <span class="chapter-date">Jan 6, 21</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-74.html" class="chapter-link">Chapter 74</a>
+                    <span class="chapter-date">Dec 30, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-73.html" class="chapter-link">Chapter 73</a>
+                    <span class="chapter-date">Dec 23, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-72.html" class="chapter-link">Chapter 72</a>
+                    <span class="chapter-date">Dec 16, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-71.html" class="chapter-link">Chapter 71</a>
+                    <span class="chapter-date">Dec 9, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-70.html" class="chapter-link">Chapter 70</a>
+                    <span class="chapter-date">Dec 2, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-69.html" class="chapter-link">Chapter 69</a>
+                    <span class="chapter-date">Nov 25, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-68.html" class="chapter-link">Chapter 68</a>
+                    <span class="chapter-date">Nov 18, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-67.html" class="chapter-link">Chapter 67</a>
+                    <span class="chapter-date">Nov 11, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-66.html" class="chapter-link">Chapter 66</a>
+                    <span class="chapter-date">Nov 4, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-65.html" class="chapter-link">Chapter 65</a>
+                    <span class="chapter-date">Oct 28, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-64.html" class="chapter-link">Chapter 64</a>
+                    <span class="chapter-date">Oct 21, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-63.html" class="chapter-link">Chapter 63</a>
+                    <span class="chapter-date">Oct 14, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-62.html" class="chapter-link">Chapter 62</a>
+                    <span class="chapter-date">Oct 7, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-61.html" class="chapter-link">Chapter 61</a>
+                    <span class="chapter-date">Sep 30, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-60.html" class="chapter-link">Chapter 60</a>
+                    <span class="chapter-date">Sep 23, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-59.html" class="chapter-link">Chapter 59</a>
+                    <span class="chapter-date">Sep 16, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-58.html" class="chapter-link">Chapter 58</a>
+                    <span class="chapter-date">Sep 9, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-57.html" class="chapter-link">Chapter 57</a>
+                    <span class="chapter-date">Sep 2, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-56.html" class="chapter-link">Chapter 56</a>
+                    <span class="chapter-date">Aug 26, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-55.html" class="chapter-link">Chapter 55</a>
+                    <span class="chapter-date">Aug 19, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-54.html" class="chapter-link">Chapter 54</a>
+                    <span class="chapter-date">Aug 12, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-53.html" class="chapter-link">Chapter 53</a>
+                    <span class="chapter-date">Aug 5, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-52.html" class="chapter-link">Chapter 52</a>
+                    <span class="chapter-date">Jul 29, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-51.html" class="chapter-link">Chapter 51</a>
+                    <span class="chapter-date">Jul 22, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-50.html" class="chapter-link">Chapter 50</a>
+                    <span class="chapter-date">Jul 15, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-49.html" class="chapter-link">Chapter 49</a>
+                    <span class="chapter-date">Jul 8, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-48.html" class="chapter-link">Chapter 48</a>
+                    <span class="chapter-date">Jul 1, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-47.html" class="chapter-link">Chapter 47</a>
+                    <span class="chapter-date">Jun 24, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-46.html" class="chapter-link">Chapter 46</a>
+                    <span class="chapter-date">Jun 17, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-45.html" class="chapter-link">Chapter 45</a>
+                    <span class="chapter-date">Jun 10, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-44.html" class="chapter-link">Chapter 44</a>
+                    <span class="chapter-date">Jun 3, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-43.html" class="chapter-link">Chapter 43</a>
+                    <span class="chapter-date">May 27, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-42.html" class="chapter-link">Chapter 42</a>
+                    <span class="chapter-date">May 20, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-41.html" class="chapter-link">Chapter 41</a>
+                    <span class="chapter-date">May 13, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-40.html" class="chapter-link">Chapter 40</a>
+                    <span class="chapter-date">May 6, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-39.html" class="chapter-link">Chapter 39</a>
+                    <span class="chapter-date">Apr 29, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-38.html" class="chapter-link">Chapter 38</a>
+                    <span class="chapter-date">Apr 22, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-37.html" class="chapter-link">Chapter 37</a>
+                    <span class="chapter-date">Apr 15, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-36.html" class="chapter-link">Chapter 36</a>
+                    <span class="chapter-date">Apr 8, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-35.html" class="chapter-link">Chapter 35</a>
+                    <span class="chapter-date">Apr 1, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-34.html" class="chapter-link">Chapter 34</a>
+                    <span class="chapter-date">Mar 25, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-33.html" class="chapter-link">Chapter 33</a>
+                    <span class="chapter-date">Mar 18, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-32.html" class="chapter-link">Chapter 32</a>
+                    <span class="chapter-date">Mar 11, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-31.html" class="chapter-link">Chapter 31</a>
+                    <span class="chapter-date">Mar 4, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-30.html" class="chapter-link">Chapter 30</a>
+                    <span class="chapter-date">Feb 26, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-29.html" class="chapter-link">Chapter 29</a>
+                    <span class="chapter-date">Feb 19, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-28.html" class="chapter-link">Chapter 28</a>
+                    <span class="chapter-date">Feb 12, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-27.html" class="chapter-link">Chapter 27</a>
+                    <span class="chapter-date">Feb 5, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-26.html" class="chapter-link">Chapter 26</a>
+                    <span class="chapter-date">Jan 29, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-25.html" class="chapter-link">Chapter 25</a>
+                    <span class="chapter-date">Jan 22, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-24.html" class="chapter-link">Chapter 24</a>
+                    <span class="chapter-date">Jan 15, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-23.html" class="chapter-link">Chapter 23</a>
+                    <span class="chapter-date">Jan 8, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-22.html" class="chapter-link">Chapter 22</a>
+                    <span class="chapter-date">Jan 1, 20</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-21.html" class="chapter-link">Chapter 21</a>
+                    <span class="chapter-date">Dec 25, 19</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-20.html" class="chapter-link">Chapter 20</a>
+                    <span class="chapter-date">Dec 18, 19</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-19.html" class="chapter-link">Chapter 19</a>
+                    <span class="chapter-date">Dec 11, 19</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-18.html" class="chapter-link">Chapter 18</a>
+                    <span class="chapter-date">Dec 4, 19</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-17.html" class="chapter-link">Chapter 17</a>
+                    <span class="chapter-date">Nov 27, 19</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-16.html" class="chapter-link">Chapter 16</a>
+                    <span class="chapter-date">Nov 20, 19</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-15.html" class="chapter-link">Chapter 15</a>
+                    <span class="chapter-date">Nov 13, 19</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-14.html" class="chapter-link">Chapter 14</a>
+                    <span class="chapter-date">Nov 6, 19</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-13.html" class="chapter-link">Chapter 13</a>
+                    <span class="chapter-date">Oct 30, 19</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-12.html" class="chapter-link">Chapter 12</a>
+                    <span class="chapter-date">Oct 23, 19</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-11.html" class="chapter-link">Chapter 11</a>
+                    <span class="chapter-date">Oct 16, 19</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-10.html" class="chapter-link">Chapter 10</a>
+                    <span class="chapter-date">Oct 9, 19</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-9.html" class="chapter-link">Chapter 9</a>
+                    <span class="chapter-date">Oct 2, 19</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-8.html" class="chapter-link">Chapter 8</a>
+                    <span class="chapter-date">Sep 25, 19</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-7.html" class="chapter-link">Chapter 7</a>
+                    <span class="chapter-date">Sep 18, 19</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-6.html" class="chapter-link">Chapter 6</a>
+                    <span class="chapter-date">Sep 11, 19</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-5.html" class="chapter-link">Chapter 5</a>
+                    <span class="chapter-date">Sep 4, 19</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-4.html" class="chapter-link">Chapter 4</a>
+                    <span class="chapter-date">Aug 28, 19</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-3.html" class="chapter-link">Chapter 3</a>
+                    <span class="chapter-date">Aug 21, 19</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-2.html" class="chapter-link">Chapter 2</a>
+                    <span class="chapter-date">Aug 14, 19</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-1.html" class="chapter-link">Chapter 1</a>
+                    <span class="chapter-date">Aug 7, 19</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/solo-leveling/chapter-0.html" class="chapter-link">Chapter 0 - Prologue</a>
+                    <span class="chapter-date">Jul 31, 19</span>
+                </li>
+            </ul>
+            <div class="pagination">
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">»</a>
+                <a href="#">Last »</a>
+            </div>
+        </div>
+        
+        <div class="discussion-section" style="display: none;">
+            <p>Disqus isn't available at the moment on our website. We are looking into a solution.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-nav">
+                <a href="../index.html">Home</a>
+                <a href="../privacy.html">Privacy Policy</a>
+                <a href="../terms.html">Terms of Service</a>
+                <a href="../contact.html">Contact</a>
+                <a href="../discord.html">Discord</a>
+            </div>
+            <div class="copyright">
+                © 2019-2025 ManhwaMosaic. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    
+    <script src="../js/family-mode.js"></script>
+    <script src="../js/header-search.js"></script>
+    <script src="../script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab functionality
+            const tabLinks = document.querySelectorAll('.tab-link');
+            const chaptersSection = document.querySelector('.chapters-section');
+            const discussionSection = document.querySelector('.discussion-section');
+            
+            tabLinks.forEach(function(tab) {
+                tab.addEventListener('click', function() {
+                    tabLinks.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    if (this.textContent === 'CHAPTERS') {
+                        chaptersSection.style.display = 'block';
+                        discussionSection.style.display = 'none';
+                    } else {
+                        chaptersSection.style.display = 'none';
+                        discussionSection.style.display = 'block';
+                    }
+                });
+            });
+            
+            // Bookmark button functionality
+            const bookmarkBtn = document.querySelector('.user-action.bookmark');
+            
+            bookmarkBtn.addEventListener('click', function() {
+                this.classList.toggle('active');
+                
+                const bookmarkIcon = this.querySelector('i');
+                if (this.classList.contains('active')) {
+                    bookmarkIcon.className = 'fas fa-bookmark';
+                } else {
+                    bookmarkIcon.className = 'far fa-bookmark';
+                }
+            });
+            
+            // Read first/last button functionality
+            const readFirstBtn = document.querySelector('.action-btn.read-first');
+            const readLastBtn = document.querySelector('.action-btn.read-last');
+            
+            readFirstBtn.addEventListener('click', function() {
+                window.location.href = '../chapters/solo-leveling/chapter-1.html';
+            });
+            
+            readLastBtn.addEventListener('click', function() {
+                window.location.href = '../chapters/solo-leveling/side-story-21.html';
+            });
+            
+            // Reverse order functionality
+            const chaptersOrderBtn = document.querySelector('.chapters-order');
+            const chapterList = document.querySelector('.chapter-list');
+            
+            chaptersOrderBtn.addEventListener('click', function() {
+                const chapters = Array.from(chapterList.children);
+                chapters.reverse();
+                
+                while (chapterList.firstChild) {
+                    chapterList.removeChild(chapterList.firstChild);
+                }
+                
+                chapters.forEach(chapter => {
+                    chapterList.appendChild(chapter);
+                });
+            });
+        });
+    </script>
+    <script src="../js/family-mode.js"></script>
+    <script src="../js/header-search.js"></script>
+    <script src="../script.js"></script>
+    <script src="../dark-mode.js"></script>
+    <script src="../reader-settings.js"></script>
+    <script src="../family-mode.js"></script>
+</body>
+
+</html>
+
+
+
+

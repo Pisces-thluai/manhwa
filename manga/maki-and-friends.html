@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maki and Friends - ManhwaMosaic</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../css/header-search.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <style>
+        /* Toonily-inspired styles */
+        body {
+            background-color: #151f2e;
+            color: #fff;
+        }
+        
+        .content-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .manga-header-wrap {
+            background: linear-gradient(to bottom, rgba(21, 31, 46, 0.8), #151f2e), 
+                url('../images/backgrounds/maki-and-friends-bg.jpg') center/cover no-repeat;
+            padding: 40px 0;
+        }
+        
+        .manga-header {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .manga-cover {
+            flex: 0 0 270px;
+            position: relative;
+        }
+        
+        .manga-cover img {
+            width: 100%;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hot-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff424e;
+            color: white;
+            padding: 2px 8px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+        
+        .manga-info {
+            flex: 1;
+        }
+        
+        .manga-title-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        
+        .manga-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .manga-title-tag {
+            background-color: #ff424e;
+            color: white;
+            padding: 2px 8px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+        
+        .manga-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 15px;
+        }
+        
+        .manga-rating-stars {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .manga-rating-stars i {
+            color: #ffb400;
+        }
+        
+        .manga-rating-score {
+            font-weight: bold;
+        }
+        
+        .manga-rating-views i {
+            color: #6c757d;
+            margin-right: 5px;
+        }
+        
+        .manga-alt-titles {
+            color: #b9b9b9;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .manga-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .manga-meta-item {
+            display: flex;
+        }
+        
+        .manga-meta-label {
+            width: 80px;
+            color: #b9b9b9;
+            font-size: 14px;
+        }
+        
+        .manga-meta-value {
+            color: #fff;
+            font-size: 14px;
+        }
+        
+        .manga-meta-value.status {
+            color: #4caf50;
+        }
+        
+        .manga-meta-value.status.completed {
+            color: #ff9800;
+        }
+        
+        .manga-genres {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .genre-tag {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #2a3541;
+            color: #b9b9b9;
+            border-radius: 4px;
+            margin: 0 5px 5px 0;
+            font-size: 14px;
+        }
+        
+        .action-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .action-btn {
+            padding: 8px 20px;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+        
+        .action-btn.read-first {
+            background-color: #ff424e;
+        }
+        
+        .action-btn.read-last {
+            background-color: #2a3541;
+        }
+        
+        .user-actions {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .user-action {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #b9b9b9;
+            cursor: pointer;
+        }
+        
+        .user-action.active {
+            color: #ff424e;
+        }
+        
+        .user-action.bookmark {
+            color: #b9b9b9;
+        }
+        
+        .user-action i {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .user-action-text {
+            font-size: 12px;
+        }
+        
+        .user-action-count {
+            color: #b9b9b9;
+            font-size: 12px;
+        }
+        
+        /* Summary Section */
+        .summary-section {
+            padding: 40px 0;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            text-transform: uppercase;
+        }
+        
+        .manga-description {
+            line-height: 1.7;
+            color: #b9b9b9;
+        }
+        
+        /* Tags Section */
+        .tags-section {
+            padding: 20px 0;
+        }
+        
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+        
+        /* Chapters Section */
+        .chapters-section {
+            padding: 20px 0;
+        }
+        
+        .chapters-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .chapters-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .chapters-order {
+            display: flex;
+            align-items: center;
+            color: #b9b9b9;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .chapters-order i {
+            margin-left: 5px;
+        }
+        
+        .chapter-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+        
+        .chapter-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: background-color 0.2s;
+        }
+        
+        .chapter-item:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        
+        .chapter-link {
+            color: #fff;
+            text-decoration: none;
+            flex: 1;
+        }
+        
+        .chapter-date {
+            color: #6c757d;
+            font-size: 14px;
+        }
+        
+        .discussion-section {
+            padding: 40px 0;
+            color: #b9b9b9;
+            text-align: center;
+        }
+        
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .tab-link {
+            padding: 10px 20px;
+            color: #b9b9b9;
+            cursor: pointer;
+            position: relative;
+            font-weight: bold;
+        }
+        
+        .tab-link.active {
+            color: #fff;
+        }
+        
+        .tab-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #ff424e;
+        }
+        
+        @media (max-width: 768px) {
+            .manga-header {
+                flex-direction: column;
+            }
+            
+            .manga-cover {
+                flex: 0 0 auto;
+                max-width: 230px;
+                margin: 0 auto 20px;
+            }
+            
+            .action-group {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .user-actions {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../images/logo.png" alt="ManhwaMosaic">
+                </a>
+            </div>
+            <div class="family-mode-toggle">
+                <button id="family-mode-btn">Family Mode</button>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Manhwa <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="../search.html">Search</a>
+                            <a href="../new.html">New</a>
+                            <a href="../trending.html">Trending</a>
+                            <a href="../completed.html">Completed</a>
+                            <a href="../adult.html" class="adult-category-link">18+ Content</a>
+                        </div>
+                    </li>
+                    <li><a href="../manga-games.html">Manga Games</a></li>
+                    <li class="mobile-only"><button id="mobile-family-mode-btn">Family Mode</button></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="header-search">
+                    <form>
+                        <input type="text" placeholder="Search manga..." autocomplete="off">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                    <div class="search-suggestions"></div>
+                </div>
+                <div class="auth-links">
+                    <a href="../login.html" class="btn-login">Login</a>
+                    <a href="../register.html" class="btn-register">Register</a>
+                </div>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <div class="content-wrap">
+            <a href="../index.html">Home</a> / <span>Maki and Friends</span>
+        </div>
+    </div>
+
+    <div class="manga-header-wrap">
+        <div class="content-wrap">
+            <div class="manga-header">
+                <div class="manga-cover">
+                    <img src="../images/covers/maki-and-friends.jpg" alt="Maki and Friends">
+                </div>
+                <div class="manga-info">
+                    <div class="manga-title-section">
+                        <h1 class="manga-title">Maki and Friends</h1>
+                    </div>
+                    
+                    <div class="manga-rating">
+                        <div class="manga-rating-stars">
+                            <i class="fas fa-star"></i>
+                            <span class="manga-rating-score">4.5 (4.7K)</span>
+                        </div>
+                        <div class="manga-rating-views">
+                            <i class="fas fa-eye"></i>
+                            <span>213.6K</span>
+                        </div>
+                    </div>
+                    
+                    <div class="manga-alt-titles">
+                        마키와 친구들
+                    </div>
+                    
+                    <div class="manga-meta">
+                        <div class="manga-meta-item">
+                            <div class="manga-meta-label">Author(s)</div>
+                            <div class="manga-meta-value">Toomics</div>
+                        </div>
+                        <div class="manga-meta-item">
+                            <div class="manga-meta-label">Artist(s)</div>
+                            <div class="manga-meta-value">Toomics Studio</div>
+                        </div>
+                        <div class="manga-meta-item">
+                            <div class="manga-meta-label">Genre(s)</div>
+                            <div class="manga-meta-value">
+                                <div class="manga-genres">
+                                    <span class="genre-tag">Comedy</span>
+                                    <span class="genre-tag">Romance</span>
+                                    <span class="genre-tag">School Life</span>
+                                    <span class="genre-tag">Slice of Life</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="manga-meta-item">
+                            <div class="manga-meta-label">Status</div>
+                            <div class="manga-meta-value status">Ongoing</div>
+                        </div>
+                        <div class="manga-meta-item">
+                            <div class="manga-meta-label">Published by</div>
+                            <div class="manga-meta-value">Toomics</div>
+                        </div>
+                    </div>
+                    
+                    <div class="action-group">
+                        <div class="action-buttons">
+                            <button class="action-btn read-first">Read First</button>
+                            <button class="action-btn read-last">Read Last</button>
+                        </div>
+                        <div class="user-actions">
+                            <div class="user-action">
+                                <i class="fas fa-star"></i>
+                                <span class="user-action-text">Rate this</span>
+                            </div>
+                            <div class="user-action bookmark">
+                                <i class="far fa-bookmark"></i>
+                                <span class="user-action-text">1.8k</span>
+                                <span class="user-action-count">Bookmarks</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-wrap">
+        <div class="summary-section">
+            <h2 class="section-title">SUMMARY</h2>
+            <div class="manga-description">
+                <p>Follow the daily adventures of Maki, a cheerful high school student, and her diverse group of friends as they navigate the ups and downs of teenage life. Each with their own distinct personality, Maki's friends bring color and excitement to the otherwise ordinary school days.</p>
+                <p>What starts as simple high school comedy gradually evolves into a heartwarming story about friendship, growth, and the unbreakable bonds formed during these formative years. As the story progresses, the characters face various challenges that test their relationships and help them discover who they truly want to be.</p>
+            </div>
+        </div>
+        
+        <div class="tags-section">
+            <h2 class="section-title">TAGS</h2>
+            <div class="tag-list">
+                <span class="tag">FRIENDSHIP</span>
+                <span class="tag">COMEDY</span>
+                <span class="tag">SCHOOL LIFE</span>
+                <span class="tag">ROMANCE</span>
+                <span class="tag">SLICE OF LIFE</span>
+            </div>
+        </div>
+        
+        <div class="tab-nav">
+            <div class="tab-link active">CHAPTERS</div>
+            <div class="tab-link">DISCUSSION</div>
+        </div>
+        
+        <div class="chapters-section">
+            <div class="chapters-header">
+                <div class="chapters-title">CHAPTERS</div>
+                <div class="chapters-order">
+                    <span>Reverse Order</span>
+                    <i class="fas fa-sort"></i>
+                </div>
+            </div>
+            <ul class="chapter-list">
+                <li class="chapter-item">
+                    <a href="../chapters/maki-and-friends/chapter-257.html" class="chapter-link">Chapter 257</a>
+                    <span class="chapter-date">Apr 20, 2025</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/maki-and-friends/chapter-256.html" class="chapter-link">Chapter 256</a>
+                    <span class="chapter-date">Apr 20, 2025</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/maki-and-friends/chapter-255.html" class="chapter-link">Chapter 255</a>
+                    <span class="chapter-date">Apr 13, 2025</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/maki-and-friends/chapter-254.html" class="chapter-link">Chapter 254</a>
+                    <span class="chapter-date">Apr 13, 2025</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/maki-and-friends/chapter-253.html" class="chapter-link">Chapter 253</a>
+                    <span class="chapter-date">Apr 6, 2025</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/maki-and-friends/chapter-252.html" class="chapter-link">Chapter 252</a>
+                    <span class="chapter-date">Apr 6, 2025</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/maki-and-friends/chapter-251.html" class="chapter-link">Chapter 251</a>
+                    <span class="chapter-date">Mar 30, 2025</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/maki-and-friends/chapter-250.html" class="chapter-link">Chapter 250</a>
+                    <span class="chapter-date">Mar 30, 2025</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/maki-and-friends/chapter-249.html" class="chapter-link">Chapter 249</a>
+                    <span class="chapter-date">Mar 23, 2025</span>
+                </li>
+                <li class="chapter-item">
+                    <a href="../chapters/maki-and-friends/chapter-248.html" class="chapter-link">Chapter 248</a>
+                    <span class="chapter-date">Mar 23, 2025</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="discussion-section" style="display: none;">
+            <p>Disqus isn't available at the moment on our website. We are looking into a solution.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-nav">
+                <a href="../index.html">Home</a>
+                <a href="../privacy.html">Privacy Policy</a>
+                <a href="../terms.html">Terms of Service</a>
+                <a href="../contact.html">Contact</a>
+                <a href="../discord.html">Discord</a>
+            </div>
+            <div class="copyright">
+                © 2019-2025 ManhwaMosaic. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    
+    <script src="../js/family-mode.js"></script>
+    <script src="../js/header-search.js"></script>
+    <script src="../script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab functionality
+            const tabLinks = document.querySelectorAll('.tab-link');
+            const chaptersSection = document.querySelector('.chapters-section');
+            const discussionSection = document.querySelector('.discussion-section');
+            
+            tabLinks.forEach(function(tab) {
+                tab.addEventListener('click', function() {
+                    tabLinks.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    if (this.textContent === 'CHAPTERS') {
+                        chaptersSection.style.display = 'block';
+                        discussionSection.style.display = 'none';
+                    } else {
+                        chaptersSection.style.display = 'none';
+                        discussionSection.style.display = 'block';
+                    }
+                });
+            });
+            
+            // Bookmark button functionality
+            const bookmarkBtn = document.querySelector('.user-action.bookmark');
+            
+            bookmarkBtn.addEventListener('click', function() {
+                this.classList.toggle('active');
+                
+                const bookmarkIcon = this.querySelector('i');
+                if (this.classList.contains('active')) {
+                    bookmarkIcon.className = 'fas fa-bookmark';
+                } else {
+                    bookmarkIcon.className = 'far fa-bookmark';
+                }
+            });
+            
+            // Read first/last button functionality
+            const readFirstBtn = document.querySelector('.action-btn.read-first');
+            const readLastBtn = document.querySelector('.action-btn.read-last');
+            
+            readFirstBtn.addEventListener('click', function() {
+                window.location.href = '../chapters/maki-and-friends/chapter-1.html';
+            });
+            
+            readLastBtn.addEventListener('click', function() {
+                window.location.href = '../chapters/maki-and-friends/chapter-257.html';
+            });
+            
+            // Reverse order functionality
+            const chaptersOrderBtn = document.querySelector('.chapters-order');
+            const chapterList = document.querySelector('.chapter-list');
+            
+            chaptersOrderBtn.addEventListener('click', function() {
+                const chapters = Array.from(chapterList.children);
+                chapters.reverse();
+                
+                while (chapterList.firstChild) {
+                    chapterList.removeChild(chapterList.firstChild);
+                }
+                
+                chapters.forEach(chapter => {
+                    chapterList.appendChild(chapter);
+                });
+            });
+        });
+    </script>
+    <script src="../js/family-mode.js"></script>
+    <script src="../js/header-search.js"></script>
+    <script src="../script.js"></script>
+    <script src="../dark-mode.js"></script>
+    <script src="../reader-settings.js"></script>
+    <script src="../family-mode.js"></script>
+</body>
+</html> 
+
+
+
+
+
